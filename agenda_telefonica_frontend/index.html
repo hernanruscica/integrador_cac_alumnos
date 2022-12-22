@@ -9,63 +9,68 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+
+    <!--HEADER COMIENZA-->
     <header class="header ">      
         <div class="header__container container">
             <div class="header__brand">
                 <h1 class="header__brand__title">Agenda Telefónica</h1>
                 <h2 class="header__brand__subtitle">Codo a Codo 2022</h2>
             </div>
-            <div class="header__menu-btn">
-                <i class="header__brand_subtitle__icon fa-solid fa-bars"></i>
-            </div>        
+            <div class="header__menu-btn" >
+                <i class="header__brand_subtitle__icon fa-solid fa-bars" id = "btn-menu"></i>
+            </div>                    
         </div>  
+        <nav class="navbar" id = "navbar">
+            <ul>
+                <li><a class = "navbar__enlace" id="navbar_enlace_01" href="partial/proyecto.html">Presentación del proyecto</a></li>                
+                <li><a class = "navbar__enlace" id="navbar_enlace_02"   href="./contactos/ver">Ver contactos</a></li>
+                <li><a class = "navbar__enlace" id="navbar_enlace_03"   href="partials/nuevo_contacto.html">Nuevo Contacto</a></li>
+                <li><a class = "navbar__enlace" id="navbar_enlace_04"   href="partial/sobremi.html">Sobre mí</a></li>
+                <li><a class = "navbar__enlace" id="navbar_enlace_05"   href="partial/queescac.html">Que es Codo a Codo 4.0?</a></li>
+            </ul>      
+            <i class="navbar__close-btn fa-solid fa-xmark" id = "btn-close"></i>      
+        </nav>
     </header>
+    <!--HEADER TERMINA-->
+
+
+
+    <!--MAIN COMIENZA-->
     <main > 
         <h2 class="container">Nuevo contacto</h2>        
         <form class = "form container" action="">
             <div class="form__field">
                 <label class = "form__field__label" for="nombres">Nombres</label>
                 <input class = "form__field__input" type="text" id = "nombres" placeholder="Ingrese el/los nombres del contacto.">
-                <label class = "form__field__error">*No puede estar vacio</label>
+                <label class = "form__field__error hidden">*No puede estar vacio</label>
             </div>
             <div class="form__field">
                 <label class = "form__field__label" for="apellidos">Apellidos</label>
                 <input class = "form__field__input" type="text" id = "apellidos" placeholder="Ingrese el/los apellidos del contacto.">
-                <label class = "form__field__error">*No puede estar vacio</label>
+                <label class = "form__field__error hidden">*No puede estar vacio</label>
             </div>
             <div class="form__field">
                 <label class = "form__field__label" for="telefono">Número de teléfono</label>
                 <input class = "form__field__input" type="text" id = "telefono" placeholder="Ingrese el número de teléfono.">
-                <label class = "form__field__error">*No puede estar vacio /formato no valido</label>
+                <label class = "form__field__error hidden">*No puede estar vacio /formato no valido</label>
             </div>
             <div class="form__field">
                 <label class = "form__field__label" for="email">Correo Electrónico</label>
                 <input class = "form__field__input" type="text" id = "email" placeholder="Ingrese el correo electrónico.">
-                <label class = "form__field__error">*No puede estar vacio / formato no valido</label>
+                <label class = "form__field__error hidden">*No puede estar vacio / formato no valido</label>
             </div>
             <div class="form__field">
                 <input class="form__field__btn" type="button" value="Agregar Contacto">
             </div>
-        </form>
-        <p class="container">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias at suscipit sequi qui quos doloribus dolorem ratione explicabo consequatur odit aperiam ut mollitia sed, nemo tempora dolor, ipsam tenetur officia.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt sed maxime adipisci minima possimus natus voluptatibus aperiam neque, numquam itaque veritatis harum rem exercitationem, voluptate ab perferendis tempora! Quaerat, odio.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias at suscipit sequi qui quos doloribus dolorem ratione explicabo consequatur odit aperiam ut mollitia sed, nemo tempora dolor, ipsam tenetur officia.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt sed maxime adipisci minima possimus natus voluptatibus aperiam neque, numquam itaque veritatis harum rem exercitationem, voluptate ab perferendis tempora! Quaerat, odio.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias at suscipit sequi qui quos doloribus dolorem ratione explicabo consequatur odit aperiam ut mollitia sed, nemo tempora dolor, ipsam tenetur officia.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt sed maxime adipisci minima possimus natus voluptatibus aperiam neque, numquam itaque veritatis harum rem exercitationem, voluptate ab perferendis tempora! Quaerat, odio.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias at suscipit sequi qui quos doloribus dolorem ratione explicabo consequatur odit aperiam ut mollitia sed, nemo tempora dolor, ipsam tenetur officia.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt sed maxime adipisci minima possimus natus voluptatibus aperiam neque, numquam itaque veritatis harum rem exercitationem, voluptate ab perferendis tempora! Quaerat, odio.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias at suscipit sequi qui quos doloribus dolorem ratione explicabo consequatur odit aperiam ut mollitia sed, nemo tempora dolor, ipsam tenetur officia.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt sed maxime adipisci minima possimus natus voluptatibus aperiam neque, numquam itaque veritatis harum rem exercitationem, voluptate ab perferendis tempora! Quaerat, odio.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias at suscipit sequi qui quos doloribus dolorem ratione explicabo consequatur odit aperiam ut mollitia sed, nemo tempora dolor, ipsam tenetur officia.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt sed maxime adipisci minima possimus natus voluptatibus aperiam neque, numquam itaque veritatis harum rem exercitationem, voluptate ab perferendis tempora! Quaerat, odio.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias at suscipit sequi qui quos doloribus dolorem ratione explicabo consequatur odit aperiam ut mollitia sed, nemo tempora dolor, ipsam tenetur officia.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt sed maxime adipisci minima possimus natus voluptatibus aperiam neque, numquam itaque veritatis harum rem exercitationem, voluptate ab perferendis tempora! Quaerat, odio.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias at suscipit sequi qui quos doloribus dolorem ratione explicabo consequatur odit aperiam ut mollitia sed, nemo tempora dolor, ipsam tenetur officia.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt sed maxime adipisci minima possimus natus voluptatibus aperiam neque, numquam itaque veritatis harum rem exercitationem, voluptate ab perferendis tempora! Quaerat, odio.
-        </p>
+        </form>        
     </main>
+    <!--MAIN TERMINA-->
+
+
+
+    <!--FOOTER COMIENZA-->
     <footer class = "footer">
         <div class="footer__container container">
             <p class="footer__paragraph">
@@ -78,5 +83,7 @@
             </p>
         </div>
     </footer>
+    <script src="scripts.js"></script>
+    <!--FOOTER TERMINA-->
 </body>
 </html>

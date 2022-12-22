@@ -5,13 +5,14 @@ font-family: 'Nunito', sans-serif;
 font-family: 'Roboto', sans-serif;
 */
 
+/*GENERALES EMPIEZA*/
 :root {
     --dark-color-text : #333;
     --yellow-background: #f8c823;
     --petroleo-background: #38485c;
     --green : #00a59d;
+    --red : rgb(255, 0, 0);
 }   
-
 *,
 *:after,
 *:before{
@@ -19,17 +20,19 @@ font-family: 'Roboto', sans-serif;
     margin: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: 'Nunito', sans-serif;
 }
-
 .container {
     width: 90vw;
     min-width: 330px;
     margin: 0 auto;
 }
+/*GENERALES TERMINA*/
 
+
+
+/*CABECERA EMPIEZA*/
 .header {    
     background-color: var(--yellow-background);
     width: 100vw;
@@ -38,6 +41,8 @@ body {
     left: 0px;
     box-shadow: 0px 10px 18px -3px rgba(0,0,0,0.75);
     border-bottom: 1px solid var(--dark-color-text);
+    position: relative;
+    height: 60px;
 }
 .header__container {
     display: flex;
@@ -46,6 +51,7 @@ body {
     justify-content: space-between;
     padding: 0.5em ;
     font-size: 0.8em;
+    
 }
 .header__brand__title {
     font-family: 'Roboto', sans-serif;
@@ -56,30 +62,78 @@ body {
     font-family: 'Encode Sans', sans-serif;
     font-weight: 700;
 }
-
 .header__brand_subtitle__icon {
     font-size: 2em;    
     padding: 0.2em 0.2em 0.1em 0.2em;
     border-radius: 5px;
 }
-
 .header__menu-btn {
     cursor: pointer;
+    
 }
 
 
+.navbar {
+    position: absolute;
+    top: 0px;
+    left: 0px;    
+    background-color: var(--dark-color-text);       
+    width: 100vw;
+    height: 100vh;
+    padding-top: 2em;
+    transform: translateX(100vw);
+    opacity: 0;
+    transition: all ease-in-out 0.5s;
+}
+.navbar li {
+    list-style-type: none;
+    padding: 0.5em 0;
+    text-align: center;
+}
+.navbar__enlace{
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.navbar-show {
+    transform: translateX(0vw);
+    opacity: 0.8; 
+    transition: all ease-in-out .5seg;
+}
+.navbar__close-btn{
+    position: absolute;
+    top: 0.4em;
+    right: 0.8em;
+    font-size: 2em;
+    cursor: pointer;
+    background-color: #fff;
+    color: var(--dark-color-text);
+    padding: 0em 0.2em ;
+    border-radius: 50px;
+}
+
+@media (min-width: 900px){
+    .header__menu-btn {
+        display: none;
+    }   
+  
+}
+
+/*CABECERA TERMINA*/
+
+
+
+/*MAIN EMPIEZA*/
 main {
     padding-top: 6em;
     padding-bottom: 2em ;
     background-color: #ddd;
 }
-
 .form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 .form__field{
     display: flex;
     flex-direction: column;
@@ -87,20 +141,17 @@ main {
     max-width: 500px;
     margin: 1em 0;
 }
-
 .form__field__label {
     cursor: pointer;
     font-size: 1.2em;
     margin-bottom: 0.4em;
 }
-
 .form__field__input {
     padding: 0.5em;
     font-size: 1.2em;
     border-radius: 5px;
     border: none;
 }
-
 .form__field__btn {
     background-color: var(--green);
     border: none;
@@ -112,33 +163,34 @@ main {
     color: #fff;
     box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.75);
 }
-
 .form__field__btn:hover{
     opacity: 0.8;
     cursor: pointer;
 }
-
 .form__field__error {
     color: red;
 }
+.hidden {
+    display: none;
+}
+/*MAIN TERMINA*/
 
+
+
+/*FOOTER EMPIEZA*/
 .footer {    
     background-color:  var(--petroleo-background);
     color: #fff;
 }
-
 .footer__container {
     display: flex;
     flex-direction: column;
-    padding: 1em;
-    
+    padding: 1em;    
 }
-
 .footer__paragraph{
     text-align: center;
     margin-bottom: 1em;
 }
-
 .footer__paragraph__enlace{
     text-decoration: none;
     color: var(--yellow-background);
@@ -148,3 +200,4 @@ main {
     text-decoration: underline;
     opacity: 0.6;
 }
+/*FOOTER TERMINA*/
