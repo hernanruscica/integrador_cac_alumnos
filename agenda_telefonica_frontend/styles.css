@@ -48,8 +48,8 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    padding: 0.5em ;
+    justify-content: space-between;    
+    padding: 0.5em 0;
     font-size: 0.8em;
     
 }
@@ -68,8 +68,7 @@ body {
     border-radius: 5px;
 }
 .header__menu-btn {
-    cursor: pointer;
-    
+    cursor: pointer;    
 }
 
 
@@ -84,6 +83,8 @@ body {
     transform: translateX(100vw);
     opacity: 0;
     transition: all ease-in-out 0.5s;
+    display: flex;
+    flex-direction: column;
 }
 .navbar li {
     list-style-type: none;
@@ -115,8 +116,27 @@ body {
 @media (min-width: 900px){
     .header__menu-btn {
         display: none;
-    }   
-  
+    }     
+    .navbar {
+        opacity: 1;      
+        transform: translateX(0px);
+        flex-direction: row;
+        justify-content: right;
+        height: unset;  
+        position: absolute;                  
+        background-color: rgba(0,0,0,0);       
+        padding: 0; 
+    }
+    .navbar li {
+        margin:1em;
+        
+    }
+    .navbar__enlace {
+        color: #333;
+    }
+    .navbar__close-btn{
+        display: none;
+    }
 }
 
 /*CABECERA TERMINA*/
