@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda Telefónica - Agregar Contacto</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--
     <link rel="stylesheet" href="styles.css">
+    -->
 </head>
 <body>
 
-
-    <!--HEADER COMIENZA-->
+    <!--HEADER COMIENZA                    TODO ESTO VA A ESTAR CON BOOTSTRAP
     <header class="header ">      
         <div class="header__container container">
             <div class="header__brand">
@@ -34,36 +35,54 @@
             </nav>
         </div>
     </header>
+                                      TODO ESTO VA A ESTAR CON BOOTSTRAP                   -->
     <!--HEADER TERMINA-->
 
-
-
     <!--MAIN COMIENZA-->
-    <main > 
-        <h2 class="container">Nuevo contacto</h2>        
-        <form class = "form container" action="">
-            <div class="form__field">
-                <label class = "form__field__label" for="nombres">Nombres</label>
-                <input class = "form__field__input" type="text" id = "nombres" placeholder="Ingrese el/los nombres del contacto.">
-                <label class = "form__field__error hidden">*No puede estar vacio</label>
+    <main class="contenedor">     
+        
+        <!--
+            navbar de la app [AGREGAR] [VER TODOS] [BUSCAR]
+        -->
+
+
+        <form class = "formulario" action="">
+            <h2 class="formulario__titulo">Nuevo contacto</h2>
+            <div class="formulario__fila">
+                <div class="formulario__fila__campo__foto">
+                    <img src="" alt="" class="formulario__campo__foto__img">
+                </div>
+                <div class="formulario__fila__campo__foto-info">
+                    <label class = "formulario__fila__campo__foto__label" for="">Foto de perfil</label>                    
+                    <input type="file" id="foto-archivo" name="foto-archivo" accept="image/png, image/jpeg">
+                </div>
             </div>
-            <div class="form__field">
-                <label class = "form__field__label" for="apellidos">Apellidos</label>
-                <input class = "form__field__input" type="text" id = "apellidos" placeholder="Ingrese el/los apellidos del contacto.">
-                <label class = "form__field__error hidden">*No puede estar vacio</label>
+            <div class="formulario__fila">
+                <div class="formulario__fila__campo">
+                    <label class = "formulario__campo__label" for="nombres">Nombres</label>
+                    <input class = "formulario__campo__input" type="text" id = "nombres" placeholder="Ingrese el/los nombres del contacto.">
+                    <label class = "formulario__campo__error hidden">*No puede estar vacio</label>
+                </div>
+                <div class="formulario__fila__campo">
+                    <label class = "formulario__campo__label" for="apellidos">Apellidos</label>
+                    <input class = "formulario__campo__input" type="text" id = "apellidos" placeholder="Ingrese el/los apellidos del contacto.">
+                    <label class = "formulario__campo__error hidden">*No puede estar vacio</label>
+                </div>
             </div>
-            <div class="form__field">
-                <label class = "form__field__label" for="telefono">Número de teléfono</label>
-                <input class = "form__field__input" type="text" id = "telefono" placeholder="Ingrese el número de teléfono.">
-                <label class = "form__field__error hidden">*No puede estar vacio /formato no valido</label>
+            <div class="formulario__fila">
+                <div class="formulario__fila__campo">
+                    <label class = "formulario__campo__label" for="telefono">Número de teléfono</label>
+                    <input class = "formulario__campo__input" type="text" id = "telefono" placeholder="Ingrese el número de teléfono.">
+                    <label class = "formulario__campo__error hidden">*No puede estar vacio /formato no valido</label>
+                </div>
+                <div class="formulario__fila__campo">
+                    <label class = "formulario__campo__label" for="email">Correo Electrónico</label>
+                    <input class = "formulario__campo__input" type="text" id = "email" placeholder="Ingrese el correo electrónico.">
+                    <label class = "formulario__campo__error hidden">*No puede estar vacio / formato no valido</label>
+                </div>
             </div>
-            <div class="form__field">
-                <label class = "form__field__label" for="email">Correo Electrónico</label>
-                <input class = "form__field__input" type="text" id = "email" placeholder="Ingrese el correo electrónico.">
-                <label class = "form__field__error hidden">*No puede estar vacio / formato no valido</label>
-            </div>
-            <div class="form__field">
-                <input class="form__field__btn" type="button" value="Agregar Contacto">
+            <div class="formulario__fila">
+                <input class="formulario__campo__btn" type="button" value="Agregar Contacto">
             </div>
         </form>        
     </main>
