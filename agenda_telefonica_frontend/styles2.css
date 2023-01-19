@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@500;700&family=Nunito:wght@300;500;700&family=Roboto:wght@300;500;700&display=swap');
+
+/*GENERALES EMPIEZA*/
+:root {
+    --dark-color-text : #333;
+    --yellow-background: #f8c823;
+    --petroleo-background: #38485c;
+    --green : #00a59d;
+    --red : rgb(255, 0, 0);
+}   
+*, 
+*:after,
+*:before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #333;
+}
+.contenedor {
+    width: 90%;
+    min-width: 330px;
+    margin: 0 auto;
+}
+/*GENERALES TERMINA*/
+
+/*FORMULARIO EMPIEZA*/
+
+.formulario {
+    background-color: #DDD;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 0rem;
+}
+
+.formulario__fila{
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario__fila__campo{
+    display: flex;
+    flex-direction: column;
+    margin: 1.4em 0;    
+}
+
+.formulario__campo__label{
+    cursor: pointer;
+    font-size: 1em;
+    margin-bottom: 0.4em;
+}
+
+.formulario__campo__input{
+    padding: 0.5em;
+    font-size: 1em;
+    border-radius: 5px;
+    border: none;
+    
+}
+
+.formulario__campo__error{
+    color: red;
+}
+
+.formulario__campo__foto__img{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;    
+}
+
+.formulario__campo__btn{
+    cursor:pointer;
+    width: 100%;
+    background-color: #28DC25;
+    color: #fff;
+    border: none;
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0.8em;
+    margin-bottom: 2em;
+    border-radius: 5px;    
+    box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.75);
+}
+.formulario__campo__btn:hover{
+    opacity: 0.7;
+}
+input[type='file'] {
+    cursor:pointer;
+    width: 100%;
+}
+input[type='file']::file-selector-button {    
+    cursor:pointer;
+    border: none;
+    background-color: #28DC25;
+    color: #fff;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 0.8em;
+    border-radius: 5px;   
+    margin: 1em 1em 1em 0 ; 
+    box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.75);
+  }  
+
+  .app__navbar{
+    background-color: #FFEA86;
+    box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.75);
+    margin-bottom: 1rem;
+    height: 5rem;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    gap: 0.4rem;
+  }
+
+  .app__navbar__acciones,
+  .app__navbar__user{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  } 
+  .app__navbar__user{
+    justify-content: end;
+  }
+
+  .app__navbar__user label {
+    color: #555;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    font-style: italic;
+    padding: 0.2rem 1rem;
+  }
+
+  .app__navbar__acciones__link{
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    padding: 0.2rem 1rem;
+  }
+
+  .app__navbar__acciones__link:hover{
+    background-color:#ad8b19;
+    color: #DDD;
+    
+  }
+ 
+
+@media (min-width: 700px){
+    .contenedor{
+        width: 80%;
+    }
+    .formulario__fila{
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 2em;
+    }
+
+    .formulario__fila-foto-perfil{
+        justify-content: left;
+    }
+
+    .formulario__fila__campo{
+        width: 50%;
+    }
+    .formulario__campo__foto__img{
+        width: 200px;
+        height: auto;
+        object-fit: cover;    
+    }
+    .app__navbar{        
+        height: 3rem;
+        flex-direction: row;
+      }
+}
+
+
+
+/*verde 28DC25*/

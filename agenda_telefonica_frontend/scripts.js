@@ -12,7 +12,7 @@ const ocultarMenu = (idMenu, classShow) => {
 }
 
 $d.addEventListener('click', (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     if (e.target.id == 'btn-menu'){
         console.log("click en el btn menu");
         mostrarMenu('navbar', 'navbar-show');
