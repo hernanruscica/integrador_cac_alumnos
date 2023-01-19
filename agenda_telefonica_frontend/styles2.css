@@ -45,6 +45,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 1.4em 0;    
+    height: 70px;
 }
 
 .formulario__campo__label{
@@ -63,6 +64,10 @@ body {
 
 .formulario__campo__error{
     color: red;
+}
+
+.formulario__campo__error-oculto {
+    display: none;
 }
 
 .formulario__campo__foto__img{
@@ -84,6 +89,7 @@ body {
     margin-bottom: 2em;
     border-radius: 5px;    
     box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.75);
+    margin-top: 1rem;
 }
 .formulario__campo__btn:hover{
     opacity: 0.7;
@@ -103,12 +109,12 @@ input[type='file']::file-selector-button {
     padding: 0.8em;
     border-radius: 5px;   
     margin: 1em 1em 1em 0 ; 
-    box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.75);
+    box-shadow: 6px 6px 10px -5px rgba(0,0,0,0.75);
   }  
 
   .app__navbar{
     background-color: #FFEA86;
-    box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 8px -7px rgba(0,0,0,0.75);
     margin-bottom: 1rem;
     height: 5rem;
     display: flex;
@@ -155,6 +161,9 @@ input[type='file']::file-selector-button {
     .contenedor{
         width: 80%;
     }
+    .formulario{
+        padding-top: 2rem;
+    }
     .formulario__fila{
         flex-direction: row;
         justify-content: space-between;
@@ -177,6 +186,7 @@ input[type='file']::file-selector-button {
         height: 3rem;
         flex-direction: row;
       }
+    
 }
 
 
