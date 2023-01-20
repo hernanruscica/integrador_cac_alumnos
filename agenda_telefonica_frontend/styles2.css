@@ -279,20 +279,21 @@ input[type='file']::file-selector-button {
     .contactos-tarjeta{
         grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 6rem auto auto;
-        grid-template-areas: "foto-perfil foto-perfil titulo titulo titulo titulo "
-                             "foto-perfil foto-perfil data data data data "
-                             "foto-perfil foto-perfil data data data data ";                         
+        grid-template-areas: "foto-perfil titulo titulo titulo titulo titulo "
+                             "foto-perfil data data data data data "
+                             "foto-perfil data data data data data ";                         
         border: #333 solid 1px;    
     }
     .contactos-tarjeta__img-container{
-        padding: 0.5em;  
+        padding: 0em;  
         border-radius: 10px 0px 0px 10px;  
+        
     }
     .contactos-tarjeta__img-container__img{
-        width: 100%;
         height: auto;
+        width: 100%;        
         object-fit: contain;
         object-position: center;   
-        border-radius: 20px;    
+        
     }
 }
