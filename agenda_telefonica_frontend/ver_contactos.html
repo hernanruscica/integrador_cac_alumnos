@@ -31,51 +31,47 @@
             <div class="contenedor">
                 <h2 class="formulario__titulo">Contactos</h2>
 
-<!--
+                <!--Una tarjeta de un contacto Con un display grid de tres componentes-->
+                <section class="contactos-tarjeta">
+                    <div class="contactos-tarjeta__img-container">
+                        <img src="imgs/dafault_avatar.png" alt="" class="contactos-tarjeta__img-container__img">
+                    </div>
 
-                <div class="formulario__fila formulario__fila-foto-perfil">
-                    <div class="formulario__fila__campo__foto">
-                        <img src="/agenda_telefonica_frontend/imgs/dafault_avatar.png" alt="" class="formulario__campo__foto__img">
+                    <div class="contactos-tarjeta__titulo">
+                        <span class="contactos-tarjeta__titulo__texto">Juan Carlos Ernesto Rodriguez Ochoa del campo ortega</span>
+                        <div class="contactos-tarjeta__titulo__botones">
+                            <div class="contactos-tarjeta__titulo__botones__btn">
+                                <span class="contactos-tarjeta__titulo__botones__btn__texto">VER</span>
+                                <i class="fa-solid fa-eye"></i>
+                            </div>
+                            <div class="contactos-tarjeta__titulo__botones__btn">
+                                <span class="contactos-tarjeta__titulo__botones__btn__texto">EDITAR</span>
+                                <i class="fa-solid fa-pen-to-square "></i>
+                            </div>                        
+                            <div class="contactos-tarjeta__titulo__botones__btn">
+                                <span class="contactos-tarjeta__titulo__botones__btn__texto">ELIMinaR</span>
+                                <i class="fa-solid fa-trash-can"></i>
+                            </div>
+                        </div>
                     </div>
-                    <div class="formulario__fila__campo__foto-info">
-                        <label class = "formulario__campo__label" for="foto-perfil">Foto de perfíl:</label>
-                        <input type="file" id="foto-perfil" name="foto-perfil">
+                    
+                    <div class="contactos-tarjeta__data">
+                        <label class="contactos-tarjeta__data__item">                           
+                            Correo: jrodriguezo.mail.comm
+                            Correo: jrodriguezo.mail.comm
+                            Correo: jrodriguezo.mail.comm
+                            Correo: jrodriguezo.mail.comm
+                        </label>
+                        <label class="contactos-tarjeta__data__item">                           
+                            Teléfono: 1133334444
+                        </label>
                     </div>
-                </div>
-                <div class="formulario__fila">
-                    <div class="formulario__fila__campo">
-                        <label class = "formulario__campo__label" for="nombres">Nombres</label>                        
-                        <input class = "formulario__campo__input" type="text" name="nombres" id = "nombres" placeholder="Ingrese el/los nombres del contacto.">
-                        <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
-                    </div>
-                    <div class="formulario__fila__campo">
-                        <label class = "formulario__campo__label" for="apellidos">Apellidos</label>
-                        <input class = "formulario__campo__input" type="text" id = "apellidos" placeholder="Ingrese el/los apellidos del contacto.">
-                        <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
-                    </div>
-                </div>
-                <div class="formulario__fila">
-                    <div class="formulario__fila__campo">
-                        <label class = "formulario__campo__label" for="telefono">Número de teléfono</label>
-                        <input class = "formulario__campo__input" type="text" id = "telefono" placeholder="Ingrese el número de teléfono.">
-                        <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio /formato no valido</label>
-                    </div>
-                    <div class="formulario__fila__campo">
-                        <label class = "formulario__campo__label" for="email">Correo Electrónico</label>
-                        <input class = "formulario__campo__input" type="text" id = "email" placeholder="Ingrese el correo electrónico.">
-                        <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio / formato no valido</label>
-                    </div>
-                </div>
-                
-                <input class="formulario__campo__btn" type="submit" value="Agregar Contacto">
-        -->
+                </section>
             </div>
         </form>             
        
     </main>
-    <!--MAIN TERMINA-->   
-
-
+    <!--MAIN TERMINA--> 
 
     <!--FOOTER COMIENZA-->
     <footer class = "footer">

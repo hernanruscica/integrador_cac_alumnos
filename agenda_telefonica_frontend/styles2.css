@@ -191,4 +191,108 @@ input[type='file']::file-selector-button {
 
 
 
-/*verde 28DC25*/
+/*Ver contactos*/
+
+.contactos-tarjeta{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 7rem auto auto;
+    grid-template-areas: "foto-perfil foto-perfil titulo titulo titulo titulo "
+                         "data data data data data data "
+                         "data data data data data data ";                         
+    border: #333 solid 2px;    
+    border-radius: 10px;
+}
+
+.contactos-tarjeta__img-container{
+    grid-area: foto-perfil;    
+    text-align: center;
+    border: #333 solid 1px;   
+    border-top: none;
+    border-left: none;
+    overflow: hidden;
+    border-radius: 10px 0px 0px 0px;  
+}
+
+.contactos-tarjeta__titulo{
+    grid-area: titulo;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border: #333 solid 1px;   
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    align-self: center;
+    background-color: #FFEA86;  
+    border-radius: 0px 10px 0px 0px; 
+    padding: 2.6em 0.4em 0.4em 0.4em;
+}
+
+
+.contactos-tarjeta__data{
+    grid-area: data;
+    padding: 0.5em;
+}
+
+.contactos-tarjeta__img-container__img{
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    object-fit: contain;
+    object-position: center;  
+       
+}
+
+.contactos-tarjeta__titulo__texto{
+   
+    
+    
+}
+
+.contactos-tarjeta__titulo__botones__btn__texto{
+    display: none;
+}
+
+.contactos-tarjeta__titulo__botones__btn{
+    font-size: 1.4rem;
+    padding: 0.2em 0.4em;
+    color: #fff;
+    border-radius: 0px 10px 0px 0px; 
+    overflow: hidden;
+}
+
+.contactos-tarjeta__titulo__botones{
+    position: absolute;
+    top:0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    border: #333 solid 1px;   
+    border-top: none;    
+    border-right: none;
+    border-radius: 0px 10px 0px 0px;  
+     
+}
+
+@media (min-width: 700px){
+    .contactos-tarjeta{
+        grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 6rem auto auto;
+        grid-template-areas: "foto-perfil foto-perfil titulo titulo titulo titulo "
+                             "foto-perfil foto-perfil data data data data "
+                             "foto-perfil foto-perfil data data data data ";                         
+        border: #333 solid 1px;    
+    }
+    .contactos-tarjeta__img-container{
+        padding: 0.5em;  
+        border-radius: 10px 0px 0px 10px;  
+    }
+    .contactos-tarjeta__img-container__img{
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center;   
+        border-radius: 20px;    
+    }
+}
