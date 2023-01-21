@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Telefónica - Agregar Contacto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+    <link rel="stylesheet" href="styles2.css">    
+</head> 
+<body>
+    <!--MAIN COMIENZA-->
+    <main class="">     
+        <form class = "formulario" action="pepe.html" method="post">
+            <nav class="app__navbar">
+                <div class="app__navbar__acciones">
+                    <a class="app__navbar__acciones__link" href="crea_contacto.html">Agregar</a>
+                    <a class="app__navbar__acciones__link"  href="ver_contactos.html">Ver todos</a>
+                    <a class="app__navbar__acciones__link"  href="buscar_contacto.html">buscar</a>
+                </div>            
+                <div class="app__navbar__user">
+                    <label>UserName</label>
+                    <a class="app__navbar__acciones__link"  href="">Salir</a>
+                </div>
+            </nav>
+
+            <div class="contenedor">
+                <h2 class="formulario__titulo">Busqueda de contactos</h2>                
+                <div class="formulario__fila">
+                    <div class="formulario__fila__campo">
+                        <label class = "formulario__campo__label" for="nombres">Nombres</label>                        
+                        <input class = "formulario__campo__input" type="text" name="nombres" id = "nombres" placeholder="Ingrese el/los nombres del contacto.">
+                        <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
+                    </div>
+                    <div class="formulario__fila__campo">
+                        <label class = "formulario__campo__label" for="apellidos">Apellidos</label>
+                        <input class = "formulario__campo__input" type="text" id = "apellidos" placeholder="Ingrese el/los apellidos del contacto.">
+                        <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
+                    </div>
+                </div>     
+                <input class="formulario__campo__btn" type="submit" value="Buscar contacto">          
+                <h2 class="formulario__titulo">Resultado:</h2>      
+            </div>
+        </form>             
+       
+    </main>
+    <!--MAIN TERMINA-->   
+
+    <!--FOOTER COMIENZA-->
+    <footer class = "footer">
+        <div class="footer__container container">
+            <p class="footer__paragraph">
+                Aplicación realizada por Cesar Hernan Ruscica, como Trabajo Práctico Integrador, para el curso de Fullstack Javascript 2022 de Codo A Codo 4.0, del Gobierno de la Ciudad de Buenos Aires.
+            </p>
+            <p class="footer__paragraph">
+                <a class="footer__paragraph__enlace" href="./aboutme.html">Sobre mí.</a>
+                <a class="footer__paragraph__enlace" href="https://www.buenosaires.gob.ar/educacion/codo-codo" target = "_blank">Que es “Codo A Codo 4.0”</a><br>
+                Cesar Hernan Ruscica © 2022
+            </p>
+        </div>
+    </footer>
+    <script src="scripts.js"></script>
+    <!--FOOTER TERMINA-->
+</body>
+</html>
