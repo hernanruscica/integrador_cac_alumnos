@@ -71,3 +71,10 @@ function dividir(dividendo, divisor){
 console.log(dividir(5, 2));
 console.log(dividir(5, '2'));
 console.log(dividir(5, 0));
+
+const restar = (val1, val2) => {
+    let resultado = val1 - val2;
+    return resultado;
+}
+
+console.log(restar(100,10));
