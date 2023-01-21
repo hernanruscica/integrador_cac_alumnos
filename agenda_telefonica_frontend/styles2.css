@@ -26,8 +26,8 @@ body {
 }
 /*GENERALES TERMINA*/
 
-/*FORMULARIO EMPIEZA*/
 
+/*************************   FORMULARIO CREAR CONTACTO ************************** EMPIEZA*/
 .formulario {
     background-color: #DDD;
     width: 100%;
@@ -185,14 +185,14 @@ input[type='file']::file-selector-button {
     .app__navbar{        
         height: 3rem;
         flex-direction: row;
-      }
-    
+      }    
 }
+/*************************   FORMULARIO CREAR CONTACTO ************************** FINALIZA*/
 
 
 
-/*Ver contactos*/
 
+/***************************VER CONTACTOS **********************INICIA*/
 .contactos-tarjeta{
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -229,7 +229,6 @@ input[type='file']::file-selector-button {
     padding: 2.6em 0.4em 0.4em 0.4em;
 }
 
-
 .contactos-tarjeta__data{
     grid-area: data;
     padding: 0.5em;
@@ -244,24 +243,6 @@ input[type='file']::file-selector-button {
        
 }
 
-.contactos-tarjeta__titulo__texto{
-   
-    
-    
-}
-
-.contactos-tarjeta__titulo__botones__btn__texto{
-    display: none;
-}
-
-.contactos-tarjeta__titulo__botones__btn{
-    font-size: 1.4rem;
-    padding: 0.2em 0.4em;
-    color: #fff;
-    border-radius: 0px 10px 0px 0px; 
-    overflow: hidden;
-}
-
 .contactos-tarjeta__titulo__botones{
     position: absolute;
     top:0;
@@ -274,6 +255,34 @@ input[type='file']::file-selector-button {
     border-radius: 0px 10px 0px 0px;  
      
 }
+
+.contactos-tarjeta__titulo__botones__btn__texto{
+    display: none;
+}
+
+.contactos-tarjeta__titulo__botones__btn{
+    cursor: pointer;
+    font-size: 1.4rem;
+    padding: 0.2em 0.4em;
+    color: #fff;
+    background-color: #28DC25;
+    border-radius: 0px 0px 0px 0px; 
+    overflow: hidden;
+}
+.contactos-tarjeta__titulo__botones__btn:nth-last-child(1){
+    border-radius: 0px 10px 0px 0px; 
+}
+
+.btn-ver{
+    background-color: #888;
+}
+.btn-editar{
+    background-color: #28DC25;
+}
+.btn-borrar{
+    background-color: red;
+}
+
 
 @media (min-width: 700px){
     .contactos-tarjeta{
@@ -297,3 +306,4 @@ input[type='file']::file-selector-button {
         
     }
 }
+/***************************VER CONTACTOS **********************FINALIZA    */
