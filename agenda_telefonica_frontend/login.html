@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda Telefónica - Agregar Contacto</title>
+    <title>Agenda Telefónica - Ingresar</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
     <link rel="stylesheet" href="styles2.css">    
 </head> 
 <body>
     <!--MAIN COMIENZA-->
-    <main class="">     
-        <form class = "formulario" action="pepe.html" method="post">
+    <main class="">             
+        <form class = "formulario" action="ver_contactos.html" method="get">
+            <!--
             <nav class="app__navbar">
                 <div class="app__navbar__acciones">
                     <a class="app__navbar__acciones__link" href="crea_contacto.html">Agregar</a>
@@ -20,26 +21,28 @@
                 </div>            
                 <div class="app__navbar__user">
                     <label>UserName</label>
-                    <a class="app__navbar__acciones__link"  href="login.html">Salir</a>
+                    <a class="app__navbar__acciones__link"  href="">Salir</a>
                 </div>
             </nav>
-
+            -->
             <div class="contenedor">
-                <h2 class="formulario__titulo">Busqueda de contactos</h2>                
+                <h2 class="formulario__titulo">Ingrese con su usuario y contrasenia</h2>                
                 <div class="formulario__fila">
                     <div class="formulario__fila__campo">
-                        <label class = "formulario__campo__label" for="nombres">Nombres</label>                        
-                        <input class = "formulario__campo__input" type="text" name="nombres" id = "nombres" placeholder="Ingrese el/los nombres del contacto.">
+                        <label class = "formulario__campo__label" for="usuario">Usuario:</label>                        
+                        <input class = "formulario__campo__input" type="text" name="usuario" id = "usuario" placeholder="Ingrese su nombre de usuario.">
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
                     </div>
                     <div class="formulario__fila__campo">
-                        <label class = "formulario__campo__label" for="apellidos">Apellidos</label>
-                        <input class = "formulario__campo__input" type="text" id = "apellidos" placeholder="Ingrese el/los apellidos del contacto.">
+                        <label class = "formulario__campo__label" for="contrasenia">Contrasenia:</label>
+                        <input class = "formulario__campo__input" type="password" id = "contrasenia" placeholder="Ingrese su contrasenia.">
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
                     </div>
-                </div>     
-                <input class="formulario__campo__btn" type="submit" value="Buscar contacto">          
-                <h2 class="formulario__titulo">Resultado:</h2>      
+                </div>   
+                <p>Olvido su contrasenia? <a href="#">Recuperar contrasenia</a></p>
+                <p>Si todavia no esta registrado, puede <a href="registrarse.html">registrarse aca!</a></p>
+                <input class="formulario__campo__btn" type="submit" value="Ingresar">                              
+               
             </div>
         </form>             
        

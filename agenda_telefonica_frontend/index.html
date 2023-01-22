@@ -37,64 +37,13 @@
     <!--HEADER TERMINA-->
 
     <!--MAIN COMIENZA-->
-    <main class="">     
-        
-            
-
-        <form class = "formulario" action="pepe.html" method="post">
-
-            <nav class="app__navbar">
-                <div class="app__navbar__acciones">
-                    <a class="app__navbar__acciones__link" href="">Agregar</a>
-                    <a class="app__navbar__acciones__link"  href="">Ver todos</a>
-                    <a class="app__navbar__acciones__link"  href="">buscar</a>
-                </div>            
-                <div class="app__navbar__user">
-                    <label>UserName</label>   
-                    <a class="app__navbar__acciones__link"  href="">Salir</a>
-                </div>
-            </nav>
-
-            <div class="contenedor">
-                <h2 class="formulario__titulo">Nuevo contacto</h2>
-                <div class="formulario__fila formulario__fila-foto-perfil">
-                    <div class="formulario__fila__campo__foto">
-                        <img src="/agenda_telefonica_frontend/imgs/dafault_avatar.png" alt="" class="formulario__campo__foto__img">
-                    </div>
-                    <div class="formulario__fila__campo__foto-info">
-                        <label class = "formulario__campo__label" for="foto-perfil">Foto de perfíl:</label>
-                        <input type="file" id="foto-perfil" name="foto-perfil">
-                    </div>
-                </div>
-                <div class="formulario__fila">
-                    <div class="formulario__fila__campo">
-                        <label class = "formulario__campo__label" for="nombres">Nombres</label>                        
-                        <input class = "formulario__campo__input" type="text" name="nombres" id = "nombres" placeholder="Ingrese el/los nombres del contacto.">
-                        <label class = "formulario__campo__error hidden">*No puede estar vacio</label>
-                    </div>
-                    <div class="formulario__fila__campo">
-                        <label class = "formulario__campo__label" for="apellidos">Apellidos</label>
-                        <input class = "formulario__campo__input" type="text" id = "apellidos" placeholder="Ingrese el/los apellidos del contacto.">
-                        <label class = "formulario__campo__error hidden">*No puede estar vacio</label>
-                    </div>
-                </div>
-                <div class="formulario__fila">
-                    <div class="formulario__fila__campo">
-                        <label class = "formulario__campo__label" for="telefono">Número de teléfono</label>
-                        <input class = "formulario__campo__input" type="text" id = "telefono" placeholder="Ingrese el número de teléfono.">
-                        <label class = "formulario__campo__error hidden">*No puede estar vacio /formato no valido</label>
-                    </div>
-                    <div class="formulario__fila__campo">
-                        <label class = "formulario__campo__label" for="email">Correo Electrónico</label>
-                        <input class = "formulario__campo__input" type="text" id = "email" placeholder="Ingrese el correo electrónico.">
-                        <label class = "formulario__campo__error hidden">*No puede estar vacio / formato no valido</label>
-                    </div>
-                </div>
-                
-                <input class="formulario__campo__btn" type="submit" value="Agregar Contacto">
-                
-            </div>
-        </form>             
+    <main class="formulario ">     
+        <div class="contenedor">
+            <h1>Bienvenidos a mi Agenda Telefonica</h1>
+            <p>Si todavia no esta registrado, puede <a href="registrarse.html">registrarse aca!</a></p>
+            <p>Ya tiene su cuenta? Puede <a href="login.html">ingresar aqui!</a></p>
+            <p>Para usar la demo del template puede <a href="ver_contactos.html">ingresar aca!</a></p>
+        </div>
        
     </main>
     <!--MAIN TERMINA-->
