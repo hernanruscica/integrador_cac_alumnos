@@ -1,8 +1,10 @@
 const express = require('express');
-//const indexController = require('../controllers/indexController');
+const contactosController = require('../controllers/contactosController');
 var router = express.Router();
 
 //rutas del index
-router.get('/', (req, res) => {res.send('<h1>Estos son los contactos</h1>')});
+router.get('/', contactosController.addNew);
+router.get('/agregar', contactosController.addNew);
+router.get('/buscar', contactosController.search);
 
 module.exports = router;

@@ -1,0 +1,46 @@
+<%- include('partials/cabecera', {titulo: "Agenda Telefónica - Buscar contacto"}) %>   
+<!--HEADER TERMINA-->
+
+    <!--MAIN COMIENZA-->
+    <main class="">     
+        <form class = "formulario" action="pepe.html" method="post">
+            <nav class="app__navbar">
+                <div class="app__navbar__acciones">
+                    <a class="app__navbar__acciones__link" href="/contactos/agregar">Agregar</a>
+                    <a class="app__navbar__acciones__link"  href="#">Ver todos</a>
+                    <a class="app__navbar__acciones__link"  href="/contactos/buscar">buscar</a>
+                </div>            
+                <div class="app__navbar__user">
+                    <label>UserName</label>
+                    <a class="app__navbar__acciones__link"  href="/">Salir</a>
+                </div>
+            </nav>
+
+            <div class="contenedor">
+                <h2 class="formulario__titulo">Busqueda de contactos</h2>                
+                <div class="formulario__fila">
+                    <div class="formulario__fila__campo">
+                        <label class = "formulario__campo__label" for="nombres">Nombres</label>                        
+                        <input class = "formulario__campo__input" type="text" name="nombres" id = "nombres" placeholder="Ingrese el/los nombres del contacto.">
+                        <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
+                    </div>
+                    <div class="formulario__fila__campo">
+                        <label class = "formulario__campo__label" for="apellidos">Apellidos</label>
+                        <input class = "formulario__campo__input" type="text" id = "apellidos" placeholder="Ingrese el/los apellidos del contacto.">
+                        <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
+                    </div>
+                </div>     
+                <input class="formulario__campo__btn" type="submit" value="Buscar contacto">          
+                <h2 class="formulario__titulo">Resultado:</h2>      
+            </div>
+        </form>             
+       
+    </main>
+    <!--MAIN TERMINA-->   
+
+    <!--FOOTER COMIENZA-->
+    <%- include('partials/piedepagina') %>   
+    <!--FOOTER TERMINA-->
+    <!--FOOTER TERMINA-->
+</body>
+</html>

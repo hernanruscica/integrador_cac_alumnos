@@ -1,0 +1,34 @@
+<%- include('partials/cabecera', {titulo: "Agenda Telefónica - Ingrese con cuenta"}) %>   
+<!--HEADER TERMINA-->
+
+    <!--MAIN COMIENZA-->
+    <main class="">             
+        <form class = "formulario" action="ver_contactos.html" method="get">        
+            <div class="contenedor">
+                <h2 class="formulario__titulo">Ingrese con su usuario y contrasenia</h2>                
+                <div class="formulario__fila">
+                    <div class="formulario__fila__campo">
+                        <label class = "formulario__campo__label" for="usuario">Usuario:</label>                        
+                        <input class = "formulario__campo__input" type="text" name="usuario" id = "usuario" placeholder="Ingrese su nombre de usuario.">
+                        <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
+                    </div>
+                    <div class="formulario__fila__campo">
+                        <label class = "formulario__campo__label" for="contrasenia">Contrasenia:</label>
+                        <input class = "formulario__campo__input" type="password" id = "contrasenia" placeholder="Ingrese su contrasenia.">
+                        <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
+                    </div>
+                </div>   
+                <p>Olvido su contrasenia? <a href="#">Recuperar contrasenia</a></p>
+                <p>Si todavia no esta registrado, puede <a href="/registrarse">registrarse aca!</a></p>
+                <input class="formulario__campo__btn" type="submit" value="Ingresar">                              
+               
+            </div>
+        </form>             
+       
+    </main>
+    <!--MAIN TERMINA-->   
+
+    <!--FOOTER COMIENZA-->
+    <%- include('partials/piedepagina') %>        
+</body>
+</html>
