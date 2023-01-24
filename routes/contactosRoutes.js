@@ -2,7 +2,7 @@ const express = require('express');
 const contactosController = require('../controllers/contactosController');
 var router = express.Router();
 const multer = require('multer');
-const almacenamiento = multer.diskStorage({
+const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'public/')
       },
@@ -10,7 +10,7 @@ const almacenamiento = multer.diskStorage({
         cb(null, Date.now() + '-' + file.originalname)
       }
 });
-const upload = multer({ almacenamiento});
+const upload = multer({ storage});
 
 //rutas del index
 router.get('/agregar', contactosController.addNew);
