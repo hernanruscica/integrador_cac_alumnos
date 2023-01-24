@@ -4,7 +4,7 @@
 
     <!--MAIN COMIENZA-->
     <main class="">     
-        <form class = "formulario" action="pepe.html" method="post">
+        <form class = "formulario" action="/contactos/agregar" method="post" enctype="multipart/form-data">
             <nav class="app__navbar">
                 <div class="app__navbar__acciones">
                     <a class="app__navbar__acciones__link" href="/contactos/agregar">Agregar</a>
@@ -15,7 +15,7 @@
                     <label>UserName</label>
                     <a class="app__navbar__acciones__link"  href="/">Salir</a>
                 </div>
-            </nav>
+            </nav> 
 
             <div class="contenedor">
                 <h2 class="formulario__titulo">Nuevo contacto</h2>
@@ -24,8 +24,8 @@
                         <img src="imgs/default_avatar.png" alt="" class="formulario__campo__foto__img">
                     </div>
                     <div class="formulario__fila__campo__foto-info">
-                        <label class = "formulario__campo__label" for="foto-perfil">Foto de perfíl:</label>
-                        <input type="file" id="foto-perfil" name="foto-perfil">
+                        <label class = "formulario__campo__label" for="image">Foto de perfíl:</label>
+                        <input type="file" id="foto-perfil" name="image">
                     </div>
                 </div>
                 <div class="formulario__fila">
@@ -36,19 +36,19 @@
                     </div>
                     <div class="formulario__fila__campo">
                         <label class = "formulario__campo__label" for="apellidos">Apellidos</label>
-                        <input class = "formulario__campo__input" type="text" id = "apellidos" placeholder="Ingrese el/los apellidos del contacto.">
+                        <input class = "formulario__campo__input" type="text" name="apellidos" id = "apellidos" placeholder="Ingrese el/los apellidos del contacto.">
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
                     </div>
                 </div>
                 <div class="formulario__fila">
                     <div class="formulario__fila__campo">
                         <label class = "formulario__campo__label" for="telefono">Número de teléfono</label>
-                        <input class = "formulario__campo__input" type="text" id = "telefono" placeholder="Ingrese el número de teléfono.">
+                        <input class = "formulario__campo__input" type="text" name="telefono" id = "telefono" placeholder="Ingrese el número de teléfono.">
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio /formato no valido</label>
                     </div>
                     <div class="formulario__fila__campo">
                         <label class = "formulario__campo__label" for="email">Correo Electrónico</label>
-                        <input class = "formulario__campo__input" type="text" id = "email" placeholder="Ingrese el correo electrónico.">
+                        <input class = "formulario__campo__input" type="text" name="email" id = "email" placeholder="Ingrese el correo electrónico.">
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio / formato no valido</label>
                     </div>
                 </div>
