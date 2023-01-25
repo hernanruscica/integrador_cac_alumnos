@@ -22,21 +22,21 @@
                 <!--Una tarjeta de un contacto Con un display grid de tres componentes-->
                 <section class="contactos-tarjeta">
                     <div class="contactos-tarjeta__img-container">
-                        <img src="imgs/<%= contact.imagen%>" alt="" class="contactos-tarjeta__img-container__img">
+                        <img src="../imgs/<%= contact.imagen%>" alt="" class="contactos-tarjeta__img-container__img">
                     </div>
 
                     <div class="contactos-tarjeta__titulo">
                         <span class="contactos-tarjeta__titulo__texto"><%= contact.nombres + " " + contact.apellidos %></span>
                         <div class="contactos-tarjeta__titulo__botones">
-                            <div class="contactos-tarjeta__titulo__botones__btn btn btn-ver"  id="ver_contacto" data-id="<%= contact.id %>">
+                            <div class="contactos-tarjeta__titulo__botones__btn  btn-ver"  id="ver_contacto" data-id="<%= contact.id %>">
                                 <span class="contactos-tarjeta__titulo__botones__btn__texto" >VER</span>
                                 <i class="fa-solid fa-eye"></i>
                             </div>
-                            <div class="contactos-tarjeta__titulo__botones__btn btn btn-editar">
+                            <div class="contactos-tarjeta__titulo__botones__btn  btn-editar"  id="editar_contacto" data-id="<%= contact.id %>">
                                 <span class="contactos-tarjeta__titulo__botones__btn__texto">EDITAR</span>
                                 <i class="fa-solid fa-pen-to-square "></i>
                             </div>                        
-                            <div class="contactos-tarjeta__titulo__botones__btn btn btn-borrar">
+                            <div class="contactos-tarjeta__titulo__botones__btn  btn-borrar"  id="eliminar_contacto" data-id="<%= contact.id %>">
                                 <span class="contactos-tarjeta__titulo__botones__btn__texto">ELIMinaR</span>
                                 <i class="fa-solid fa-trash-can"></i>
                             </div>
@@ -47,12 +47,12 @@
                         <div class="contactos-tarjeta__data__item">                           
                             <i class="fa-regular fa-envelope"></i>                            
                             <label id = "correo"><%= contact.correo %></label>
-                            <i class="fa-regular fa-copy btn btn-copiar" data-id=""></i>
+                            <i class="fa-regular fa-copy  btn-copiar" data-id=""></i>
                         </div>
                         <div class="contactos-tarjeta__data__item">                           
                             <i class="fa-solid fa-phone"></i>
                             <label id = "telefono"><%= contact.telefono %></label>
-                            <i class="fa-regular fa-copy btn btn-copiar" data-id=""></i>
+                            <i class="fa-regular fa-copy  btn-copiar" data-id=""></i>
                         </div>
                     </div>
                 </section>   
