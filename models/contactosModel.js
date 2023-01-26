@@ -10,5 +10,8 @@ module.exports = {
     },
     getOne: (id, conection, myFunction) => {
         conection.query(`SELECT * FROM contactos WHERE id='${id}'`, myFunction);
+    },
+    edit: (id, formData, image, conection, myFunction) => {
+        conection.query(`UPDATE contactos SET nombres = '${formData.nombres}', apellidos = '${formData.apellidos}', correo = '${formData.email}', telefono = '${formData.telefono}', imagen = '${image}' WHERE id = ${id};`, myFunction);
     }
 }

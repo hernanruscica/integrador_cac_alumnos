@@ -45,5 +45,24 @@ module.exports = {
                 res.render('edit', {contacto: results[0]});
             }
         })
+    },
+    editResult: (req, res) => {
+        const id = req.params.id;
+        const formData = req.body;        
+        let imagen = null;
+        if (req.files.image != null){
+            imagen = req.files.image[0].filename 
+        }else{
+            imagen =  req.body.imagen_actual;
+        }        
+        contactosModel.edit(id, formData, imagen, conexion, (err, results) => {
+            if (!err){
+                console.log("Datos del contacto correctamente actualizados en la BD");
+                res.redirect('/contactos/todos');
+            }else{
+                console.log("Error en la consulta UPDATE a la bd");
+                console.log(err);
+            }
+        })
     }
 } 

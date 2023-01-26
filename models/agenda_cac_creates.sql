@@ -17,3 +17,5 @@ CREATE TABLE contactos (
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id), 
     PRIMARY KEY (id)
 );
+
+ALTER TABLE contactos MODIFY COLUMN imagen varchar(255) NOT NULL;

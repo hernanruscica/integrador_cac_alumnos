@@ -1,8 +1,8 @@
 
-<%- include('partials/cabecera', {titulo: "Agenda Telefónica - Agregar nuevo contacto"}) %>     
+<%- include('partials/cabecera', {titulo: "Agenda Telefónica - Agregar nuevo contacto",  estilos_ruta: "styles/"}) %>     
 <!--HEADER TERMINA-->
 
-    <!--MAIN COMIENZA-->
+    <!--MAIN COMIENZA--> 
     <main class="">     
         <form class = "formulario" action="/contactos/agregar" method="post" enctype="multipart/form-data">
             <nav class="app__navbar">
@@ -64,7 +64,7 @@
 
 
     <!--FOOTER COMIENZA-->
-    <%- include('partials/piedepagina') %>   
+    <%- include('partials/piedepagina', {scripts_ruta: "scripts/"}) %>   
     <!--FOOTER TERMINA-->
 </body>
 </html>

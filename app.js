@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv').config();
+const methodOverride = require('method-override');
 
 
 const app = express();
@@ -20,6 +21,7 @@ app.use('/', indexRouter);
 app.use('/contactos', contactoRouter);
 app.use(express.static(path.join(__dirname, 'views')));
 app.use(express.static('./public'));
+app.use(methodOverride('_method'));
 
 app.listen(APP_PORT, () => {
     console.log(`App escuchando en http://localhost:${APP_PORT}`);
