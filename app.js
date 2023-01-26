@@ -23,6 +23,9 @@ app.use(express.static(path.join(__dirname, 'views')));
 app.use(express.static('./public'));
 app.use(methodOverride('_method'));
 
+
+
+
 app.listen(APP_PORT, () => {
     console.log(`App escuchando en http://localhost:${APP_PORT}`);
 })

@@ -1,6 +1,26 @@
 const conexion = require("../models/conexion_db");
 const contactosModel = require("../models/contactosModel");
 
+
+
+const Client = require('ssh2-sftp-client');
+const sftp = new Client();
+
+sftp.connect({
+  host: 'ssh.ruscica-code.ar',
+  port: '22',
+  username: 'webmaster.ruscica-code.ar',
+  password: 'B4rt0n_2018'
+}).then(() => {
+  // Conexión exitosa
+  console.log('Conexión SFTP exitosa');
+}).catch((err) => {
+  // Error al conectarse
+  console.log(`Error al conectarse: ${err}`);
+});
+
+
+
 module.exports = {
     addNew : (req, res) => {res.render('addnew')},
     search : (req, res) => {res.render('search')},
