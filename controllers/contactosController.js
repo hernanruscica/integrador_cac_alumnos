@@ -7,8 +7,8 @@ const Client = require('ssh2-sftp-client');
 const sftp = new Client();
 
 sftp.connect({
-  host: 'ssh.ruscica-code.ar',
-  port: '22',
+  host: 'ftp.ruscica-code.ar',
+  port: '21',
   username: 'webmaster.ruscica-code.ar',
   password: 'B4rt0n_2018'
 }).then(() => {
