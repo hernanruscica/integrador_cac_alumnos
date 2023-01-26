@@ -7,7 +7,7 @@ const storage = multer.diskStorage({
         cb(null, 'public/imgs')
       },
     filename: function (req, file, cb) {
-        cb(null, Date.now() + '-' + file.originalname)
+        cb(null, Date.now() + '- foto_perfil')
       }
 });
 const upload = multer({ storage});
@@ -17,5 +17,7 @@ router.get('/agregar', contactosController.addNew);
 router.get('/buscar', contactosController.search);
 router.get('/todos', contactosController.getAll);
 router.post('/agregar', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'nombres' }, { name: 'apellidos' }, { name: 'telefono' }, { name: 'email' }]), contactosController.addNewResult);
+router.delete('/eliminar/:id', contactosController.delete);
+router.get('/editar/:id', contactosController.edit);
 
 module.exports = router;

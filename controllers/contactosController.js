@@ -22,7 +22,27 @@ module.exports = {
                 console.log("Contacto agregado con exito!");
                 res.redirect('/contactos/todos');
             }else {
-                console.log("Error en la consulta a la BD");
+                console.log("Error en la consulta INSERT a la BD");
+            }
+        })
+    },
+    delete: (req, res) => {
+        const id = req.params.id;
+        contactosModel.delete(id, conexion, (err, results) => {
+            if (!err){
+                console.log("contacto eliminado con exito!");
+                res.redirect('/contactos/todos');
+            } else {
+                console.log("Error en la consulta DELETE a la bd");
+            }
+        })
+    },
+    edit: (req, res) => {
+        const id = req.params.id;
+        contactosModel.getOne(id, conexion, (err, results) => {
+            if (!err){
+                console.log("cargada la vista de edicion");
+                res.render('edit', {contacto: results[0]});
             }
         })
     }

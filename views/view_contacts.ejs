@@ -26,16 +26,18 @@
                     </div>
 
                     <div class="contactos-tarjeta__titulo">
-                        <span class="contactos-tarjeta__titulo__texto"><%= contact.nombres + " " + contact.apellidos %></span>
+                        
+                        <span  class="contactos-tarjeta__titulo__texto"  id="name<%= contact.id %>" ><%= contact.nombres + " " + contact.apellidos %></span>
                         <div class="contactos-tarjeta__titulo__botones">
                             <div class="contactos-tarjeta__titulo__botones__btn  btn-ver"  id="ver_contacto" data-id="<%= contact.id %>">
                                 <span class="contactos-tarjeta__titulo__botones__btn__texto" >VER</span>
                                 <i class="fa-solid fa-eye"></i>
-                            </div>
-                            <div class="contactos-tarjeta__titulo__botones__btn  btn-editar"  id="editar_contacto" data-id="<%= contact.id %>">
+                            </div>                            
+                            <a class="contactos-tarjeta__titulo__botones__btn  btn-editar" href="/contactos/editar/<%= contact.id %>"  
+                                id="editar_contacto">                                
                                 <span class="contactos-tarjeta__titulo__botones__btn__texto">EDITAR</span>
                                 <i class="fa-solid fa-pen-to-square "></i>
-                            </div>                        
+                            </a>                                                    
                             <div class="contactos-tarjeta__titulo__botones__btn  btn-borrar"  id="eliminar_contacto" data-id="<%= contact.id %>">
                                 <span class="contactos-tarjeta__titulo__botones__btn__texto">ELIMinaR</span>
                                 <i class="fa-solid fa-trash-can"></i>
