@@ -81,6 +81,7 @@ module.exports = {
         }else{
             imagen =  req.body.imagen_actual;
         }        
+        subirFotoAlServidor(imagen); 
         contactosModel.edit(id, formData, imagen, conexion, (err, results) => {
             if (!err){
                 console.log("Datos del contacto correctamente actualizados en la BD");
