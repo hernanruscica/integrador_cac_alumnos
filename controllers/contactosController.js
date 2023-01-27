@@ -2,24 +2,29 @@ const conexion = require("../models/conexion_db");
 const contactosModel = require("../models/contactosModel");
 
 
+const fs = require('fs');
+const request = require('request');
 
-const Client = require('ssh2-sftp-client');
-const sftp = new Client();
-
-sftp.connect({
-  host: '190.228.29.62',
-  port: '21',
-  username: 'webmaster.ruscica-code.ar',
-  password: 'B4rt0n_2018'
-}).then(() => {
-  // Conexión exitosa
-  console.log('Conexión SFTP exitosa');
-}).catch((err) => {
-  // Error al conectarse
-  console.log(`Error al conectarse: ${err}`);
-});
-
-
+function subirFotoAlServidor (nombreArchivo){
+    const file = fs.createReadStream(`public/imgs/${nombreArchivo}`); // ruta del archivo de imagen
+    const options = {
+    method: 'POST',
+    url: 'https://ruscica-code.ar/uploads.php', // URL del servidor y archivo PHP
+    headers: {
+        'Content-Type': 'multipart/form-data'
+    },
+    formData: {
+        file: file
+    }
+    };
+    request(options, (err, res, body) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        console.log(body);
+      });
+}
 
 module.exports = {
     addNew : (req, res) => {res.render('addnew')},
@@ -35,8 +40,9 @@ module.exports = {
     },
     addNewResult : (req, res) => {
         const formData = req.body;
-        const imagePathName = req.files.image[0].filename;        
-        contactosModel.addNewResult(conexion, formData, imagePathName,(err, results) => { 
+        const nombreImagen = req.files.image[0].filename;     
+        subirFotoAlServidor(nombreImagen);   
+        contactosModel.addNewResult(conexion, formData, nombreImagen,(err, results) => { 
             //redirecciona al index de contactos.
             if (!err){
                 console.log("Contacto agregado con exito!");
