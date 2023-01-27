@@ -1,13 +1,16 @@
 const express = require('express');
 const contactosController = require('../controllers/contactosController');
 var router = express.Router();
+const path = require('path');//
 const multer = require('multer');
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'public/imgs');
       },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + '- foto_perfil.' + file.originalname.slice(-3));
+    filename: function (req, file, cb) {        
+        const fileExtension = path.extname(file.originalname);
+        //console.log(fileExtension);
+        cb(null, Date.now() + '- foto_perfil' + fileExtension);
       }
 });
 const upload = multer({ storage});
