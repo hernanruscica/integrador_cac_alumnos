@@ -13,5 +13,10 @@ module.exports = {
     },
     edit: (id, formData, image, conection, myFunction) => {
         conection.query(`UPDATE contactos SET nombres = '${formData.nombres}', apellidos = '${formData.apellidos}', correo = '${formData.email}', telefono = '${formData.telefono}', imagen = '${image}' WHERE id = ${id};`, myFunction);
+    },    
+    searchResults: (formData, conection, myFunction) => {
+        console.log("desde el modelo de la busqueda de contacto");
+        //console.log(`SELECT * FROM contactos WHERE nombres LIKE '%${formData.nombres}%' AND apellidos LIKE '%${formData.apellidos}%'`);
+        conection.query(`SELECT * FROM contactos WHERE nombres LIKE '%${formData.nombres}%' AND apellidos LIKE '%${formData.apellidos}%'`, myFunction);
     }
 }

@@ -29,10 +29,21 @@ function subirFotoAlServidor (nombreArchivo){
 module.exports = {
     addNew : (req, res) => {res.render('addnew')},
     search : (req, res) => {res.render('search')},
+    searchResults: (req, res) => {        
+        const formData = req.body;                
+        contactosModel.searchResults(formData, conexion, (err, results) => {
+            if (!err){
+                console.log("Mostrando los resultados de la busqueda");
+                res.render('view_contacts', {contacts: results, titulo: "Resultados de la busqueda"});
+            }else{
+                console.log("Error en la busqueda en la BD");
+            }
+            })        
+    },
     getAll : (req, res) => {contactosModel.getAll(conexion, (err, results) => {
         if (!err){
             console.log("Mostrando todos los contactos");
-            res.render('view_contacts', {contacts: results});
+            res.render('view_contacts', {contacts: results, titulo: "Contactos"});
         }else{
             console.log("Error en la consulta a la BD");
         }

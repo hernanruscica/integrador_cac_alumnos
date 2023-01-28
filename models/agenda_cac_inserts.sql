@@ -1,3 +1,5 @@
+use ruscicacode_agendacac_db;
+
 INSERT INTO usuarios (nombre, contrasenia, correo) VALUES 
     ('johndoe', password('1234'), 'johndoe@gmail.com'),
     ('janedoe', password('password'), 'janedoe@yahoo.com'),

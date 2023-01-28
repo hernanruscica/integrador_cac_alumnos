@@ -23,5 +23,6 @@ router.post('/agregar', upload.fields([{ name: 'image', maxCount: 1 }, { name: '
 router.delete('/eliminar/:id', contactosController.delete);
 router.get('/editar/:id', contactosController.edit);
 router.post('/editar/:id', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'nombres' }, { name: 'apellidos' }, { name: 'telefono' }, { name: 'email' }, {name: 'imagen_actual'}]), contactosController.editResult);
+router.post('/resultados_busqueda', contactosController.searchResults);
 
 module.exports = router;

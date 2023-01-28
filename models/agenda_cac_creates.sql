@@ -1,4 +1,5 @@
 use ruscicacode_agendacac_db;
+
 CREATE TABLE usuarios (
     id INTEGER AUTO_INCREMENT,
     nombre varchar(50) NOT NULL, 

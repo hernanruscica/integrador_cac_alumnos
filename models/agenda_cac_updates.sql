@@ -1,4 +1,6 @@
 
+use ruscicacode_agendacac_db;
+
 UPDATE contactos 
 SET nombres = 'Cesar Hernan',
 	apellidos = 'Ruscica',
