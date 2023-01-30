@@ -3,30 +3,30 @@
 
     <!--MAIN COMIENZA-->
     <main class="">             
-        <form class = "formulario" action="ver_contactos.html" method="get">           
+        <form class = "formulario" action="/registrarse" method="post">           
             <div class="contenedor">
                 <h2 class="formulario__titulo">Registrese para usar la agenda telefonica</h2>                
                 <div class="formulario__fila">
                     <div class="formulario__fila__campo">
-                        <label class = "formulario__campo__label" for="usuario">Usuario:</label>                        
-                        <input class = "formulario__campo__input" type="text" name="usuario" id = "usuario" placeholder="Ingrese su nombre de usuario.">
+                        <label class = "formulario__campo__label" for="nombre">Nombre:</label>                        
+                        <input class = "formulario__campo__input" type="text" name="nombre" id = "nombre" placeholder="Ingrese su nombre de usuario.">
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
                     </div>
                     <div class="formulario__fila__campo">
                         <label class = "formulario__campo__label" for="correo">Correo electronico:</label>
-                        <input class = "formulario__campo__input" type="email" id = "correo" placeholder="Ingrese un correo electronico valido.">
+                        <input class = "formulario__campo__input" type="email" name = "correo" id = "correo" placeholder="Ingrese un correo electronico valido.">
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
                     </div>
                 </div>
                 <div class="formulario__fila">
                     <div class="formulario__fila__campo">
                         <label class = "formulario__campo__label" for="contrasenia">Contrasenia:</label>
-                        <input class = "formulario__campo__input" type="password" id = "contrasenia" placeholder="Ingrese su contrasenia.">
+                        <input class = "formulario__campo__input" type="password" name = "contrasenia" id = "contrasenia" placeholder="Ingrese su contrasenia.">
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
                     </div>
                     <div class="formulario__fila__campo">
                         <label class = "formulario__campo__label" for="contrasenia2">Repita la contrasenia:</label>
-                        <input class = "formulario__campo__input" type="password" id = "contrasenia2" placeholder="Ingrese su contrasenia nuevamente.">
+                        <input class = "formulario__campo__input" type="password" name = contrasenia2 id = "contrasenia2" placeholder="Ingrese su contrasenia nuevamente.">
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
                     </div>
                 </div>   

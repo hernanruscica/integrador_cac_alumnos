@@ -102,5 +102,8 @@ module.exports = {
                 console.log(err);
             }
         })
+    },
+    index: (req, res) => {
+        res.render('contacts_index');
     }
 } 
