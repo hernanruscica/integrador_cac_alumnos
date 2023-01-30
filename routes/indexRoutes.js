@@ -8,5 +8,7 @@ router.get('/registrarse', indexController.registrar_form);
 router.get('/ingresar', indexController.login);
 router.post('/autenticar', indexController.autenticar);
 router.post('/registrarse', indexController.registrar);
+router.get("/session/:id", indexController.create_session);
 
+ 
 module.exports = router;

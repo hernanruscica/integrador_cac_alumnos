@@ -104,6 +104,8 @@ module.exports = {
         })
     },
     index: (req, res) => {
-        res.render('contacts_index');
+        let nombre = 'pepe';
+        console.log(req.session.usuario)
+        res.render('contacts_index', {nombre: nombre});
     }
 } 

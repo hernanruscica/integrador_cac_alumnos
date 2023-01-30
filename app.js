@@ -3,9 +3,19 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv').config();
 const methodOverride = require('method-override');
-
+const session = require("express-session");
 
 const app = express();
+
+app.use(session({
+    secret: "secret-key",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+  }));
+
+
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -22,6 +32,7 @@ app.use('/contactos', contactoRouter);
 app.use(express.static(path.join(__dirname, 'views')));
 app.use(express.static('./public'));
 app.use(methodOverride('_method'));
+
 
 app.listen(APP_PORT, () => {
     console.log(`App escuchando en http://localhost:${APP_PORT}`);

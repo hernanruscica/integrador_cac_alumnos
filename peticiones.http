@@ -1,0 +1,11 @@
+POST /session HTTP/1.1
+Host: localhost:10000
+Content-Type: application/json
+Content-Length: 89
+
+{
+  "name": "johndoe",
+  "id": 123,
+  "email": "johndoe@example.com",
+  "password": "password123"
+}

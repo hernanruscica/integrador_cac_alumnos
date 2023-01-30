@@ -15,8 +15,10 @@ module.exports = {
                     console.log("encontro al menos un usuario con ese nombre", passwordTextoPlano);
                     let resultadoComparacion = await bcrypt.compare(passwordTextoPlano, results[0].contrasenia);
                     if (resultadoComparacion == true){
-                        console.log("logeado correctamente");                        
-                        res.redirect("/contactos");
+                        console.log("logeado correctamente");                                                
+                        //aca tengo que enviar los datos del usuario que los tengo en results
+                        res.redirect(`/session/${results[0].id}`);                                      
+
                     }else {
                         console.log("contrasenia no valida");
                     }
@@ -41,7 +43,24 @@ module.exports = {
                         console.log("error al registrar usuario en la bd");
                     }
                 })
-            }
+            } 
         });        
+    },
+    create_session: (req, res) => {
+        const id = req.params.id;
+        indexModel.getOneById(id, conexion, (err, results) => {
+            if (!err){
+                console.log("encontre al usuario por id")
+                req.session.usuario = {
+                    nombre: results[0].nombre,
+                    id: results[0].id,
+                    correo: results[0].correo,
+                    contrasenia: results[0].contrasenia
+                  };  
+            }else{
+                console.log("error al buscar al usuario por id");
+            }
+        })                
+        res.redirect('/contactos');        
     }
 } 
