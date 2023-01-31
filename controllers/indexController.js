@@ -42,7 +42,7 @@ module.exports = {
                 })
             } 
         });        
-    },
+    }, 
     create_session: async (req, res) => {
         const id = req.params.id;
         await indexModel.getOneById(id, conexion, (err, results) => {
@@ -61,6 +61,7 @@ module.exports = {
         })   
     },
     salir: (req, res) => {
+        /*
         req.session.destroy((err) => {
             if (err) {
               console.log("Error destroying session");
@@ -69,5 +70,9 @@ module.exports = {
               res.redirect('/');
             }
           });
+          */
+        console.log("Session destroyed successfully");
+        req.session.usuario = undefined;
+        res.redirect('/');
     }
 } 
