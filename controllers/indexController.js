@@ -15,17 +15,14 @@ module.exports = {
                     console.log("encontro al menos un usuario con ese nombre", passwordTextoPlano);
                     let resultadoComparacion = await bcrypt.compare(passwordTextoPlano, results[0].contrasenia);
                     if (resultadoComparacion == true){
-                        console.log("logeado correctamente");                                                
-                        //aca tengo que enviar los datos del usuario que los tengo en results
+                        console.log("logeado correctamente");                                                                                                                                   
                         res.redirect(`/session/${results[0].id}`);                                      
-
                     }else {
                         console.log("contrasenia no valida");
                     }
                 }else{
                     console.log("no encontró ningún usuario con ese nombre");
-                }
-                
+                }                
             }else{
                 console.log("Error en la busqueda del usuario en la BD");
             }
@@ -46,21 +43,31 @@ module.exports = {
             } 
         });        
     },
-    create_session: (req, res) => {
+    create_session: async (req, res) => {
         const id = req.params.id;
-        indexModel.getOneById(id, conexion, (err, results) => {
+        await indexModel.getOneById(id, conexion, (err, results) => {
             if (!err){
-                console.log("encontre al usuario por id")
+                console.log("encontre al usuario por id", results[0].nombre)
                 req.session.usuario = {
                     nombre: results[0].nombre,
                     id: results[0].id,
                     correo: results[0].correo,
                     contrasenia: results[0].contrasenia
-                  };  
+                };                  
+                res.redirect('/contactos');   
             }else{
                 console.log("error al buscar al usuario por id");
             }
-        })                
-        res.redirect('/contactos');        
+        })   
+    },
+    salir: (req, res) => {
+        req.session.destroy((err) => {
+            if (err) {
+              console.log("Error destroying session");
+            } else {
+              console.log("Session destroyed successfully");
+              res.redirect('/');
+            }
+          });
     }
 } 

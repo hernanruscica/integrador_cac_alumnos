@@ -14,8 +14,9 @@ app.use(session({
     cookie: { secure: false }
   }));
 
-
-
+const handle404 = (req, res, next) => {
+  res.status(404).send("<h1>ERROR 404</h1> <h2>Ruta No encontrada</h2><p><a href='/'>Puede volver al inicio</a><br></p>");
+};
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -32,6 +33,7 @@ app.use('/contactos', contactoRouter);
 app.use(express.static(path.join(__dirname, 'views')));
 app.use(express.static('./public'));
 app.use(methodOverride('_method'));
+app.use(handle404);
 
 
 app.listen(APP_PORT, () => {
