@@ -26,4 +26,4 @@ router.post('/editar/:id', upload.fields([{ name: 'image', maxCount: 1 }, { name
 router.post('/resultados_busqueda', contactosController.searchResults);
 router.get('/', contactosController.index);
 
-module.exports = router; 
+module.exports = router;  

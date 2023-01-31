@@ -31,8 +31,9 @@ module.exports = {
     search : (req, res) => {req.session.usuario ? res.render('search', {nombre: req.session.usuario.nombre}) : res.redirect('/registrarse')},
     searchResults: (req, res) => {    
         if (req.session.usuario){    
-            const formData = req.body;                
-            contactosModel.searchResults(formData, conexion, (err, results) => {
+            const formData = req.body;  
+            let id = req.session.usuario.id;              
+            contactosModel.searchResults(id, formData, conexion, (err, results) => {
                 if (!err){
                     console.log("Mostrando los resultados de la busqueda");
                     res.render('view_contacts', {contacts: results, titulo: "Resultados de la busqueda", nombre: req.session.usuario.nombre});
@@ -46,7 +47,8 @@ module.exports = {
     },
     getAll : (req, res) => {
         if (req.session.usuario){
-            contactosModel.getAll(conexion, (err, results) => {
+            let usuario_id = req.session.usuario.id;
+            contactosModel.getAll(usuario_id, conexion, (err, results) => {
             if (!err){
                 console.log("Mostrando todos los contactos");
                 res.render('view_contacts', {contacts: results, titulo: "Contactos", nombre: req.session.usuario.nombre});
@@ -61,9 +63,10 @@ module.exports = {
     addNewResult : (req, res) => {
         if (req.session.usuario){
             const formData = req.body;
-            const nombreImagen = req.files.image[0].filename;     
+            const nombreImagen = req.files.image[0].filename; 
+            let id = req.session.usuario.id;    
             subirFotoAlServidor(nombreImagen);   
-            contactosModel.addNewResult(conexion, formData, nombreImagen,(err, results) => { 
+            contactosModel.addNewResult(id, conexion, formData, nombreImagen,(err, results) => { 
                 //redirecciona al index de contactos.
                 if (!err){
                     console.log("Contacto agregado con exito!");
@@ -124,7 +127,7 @@ module.exports = {
                     console.log(err);
                 }
             })
-        }else{
+        }else{ 
             res.redirect('/registrarse');
         }
     },
