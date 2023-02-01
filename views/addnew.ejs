@@ -5,17 +5,7 @@
     <!--MAIN COMIENZA--> 
     <main class="">     
         <form class = "formulario" action="/contactos/agregar" method="post" enctype="multipart/form-data">
-            <nav class="app__navbar">
-                <div class="app__navbar__acciones">
-                    <a class="app__navbar__acciones__link" href="/contactos/agregar">Agregar</a>
-                    <a class="app__navbar__acciones__link"  href="/contactos/todos">Ver todos</a>
-                    <a class="app__navbar__acciones__link"  href="/contactos/buscar">buscar</a>
-                </div>            
-                <div class="app__navbar__user">
-                    <label><%= nombre %></label>
-                    <a class="app__navbar__acciones__link"  href="/salir">Salir</a>
-                </div>
-            </nav> 
+            <%- include('partials/menu_contactos') %>
 
             <div class="contenedor">
                 <h2 class="formulario__titulo">Nuevo contacto</h2>

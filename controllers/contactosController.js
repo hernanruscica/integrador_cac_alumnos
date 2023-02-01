@@ -1,12 +1,12 @@
 const conexion = require("../models/conexion_db");
 const contactosModel = require("../models/contactosModel");
 
-
 const fs = require('fs');
 const request = require('request');
 
 function subirFotoAlServidor (nombreArchivo){
-    const file = fs.createReadStream(`public/imgs/${nombreArchivo}`); // ruta del archivo de imagen
+    const file = fs.createReadStream(`public/imgs/${nombreArchivo}`); // ruta del archivo de imagen       
+
     const options = {
     method: 'POST',
     url: 'https://ruscica-code.ar/uploads.php', // URL del servidor y archivo PHP

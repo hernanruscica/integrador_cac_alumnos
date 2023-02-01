@@ -6,7 +6,7 @@ module.exports = {
     index: (req, res) => {res.render('index')},
     registrar_form: (req, res) => {res.render('register')},
     //{req.session.usuario ? res.render('addnew', {nombre: req.session.usuario.nombre}) : res.redirect('/registrarse')}
-    login: (req, res) => {req.session.usuario ? res.redirect('/contactos') : res.render('login')},
+    login: (req, res) => {req.session.usuario ? res.redirect('/contactos') : res.render('login'); console.log(__dirname)},
     autenticar: (req, res) => {
         const nombre = req.body.nombre;
         const passwordTextoPlano = req.body.contrasenia;
@@ -21,7 +21,7 @@ module.exports = {
                     }else {
                         console.log("contrasenia no valida");
                     }
-                }else{
+                }else{ 
                     console.log("no encontró ningún usuario con ese nombre");
                 }                
             }else{

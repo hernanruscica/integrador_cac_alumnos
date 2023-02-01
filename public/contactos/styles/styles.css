@@ -117,12 +117,12 @@ input[type='file']::file-selector-button {
     background-color: #FFEA86;
     box-shadow: 0px 10px 8px -7px rgba(0,0,0,0.75);
     margin-bottom: 0rem;
-    height: 5rem;
+    height: auto;
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-    padding: 1em;
+    padding: 0.5em;
     gap: 0.4rem;
   }
 
@@ -131,17 +131,25 @@ input[type='file']::file-selector-button {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
   } 
   .app__navbar__user{
     justify-content: end;
   }
 
+  .app__navbar__user i {
+    font-size: 1.2rem;
+    padding: 0.4rem 0.5rem;
+    border: #333 solid 1px;
+    border-radius: 50%;
+  }
+
   .app__navbar__user label {
-    color: #555;
+    color: #333;
     font-size: 1.2rem;
     margin-right: 1rem;
     font-style: italic;
-    padding: 0.2rem 1rem;
+    padding: 0.2rem 0.5rem;
   }
 
   .app__navbar__acciones__link{
