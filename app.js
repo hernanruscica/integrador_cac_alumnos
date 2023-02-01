@@ -3,25 +3,16 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv').config();
 const methodOverride = require('method-override');
-//const session = require("express-session");
 const cookieSession = require("cookie-session");
+
 
 const app = express();
 
-/*
-app.use(session({
-    secret: "secret-key",  
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false }
-  }));
-*/
 app.use(cookieSession({
   name: "session",
   keys: ["secret-key"],
   maxAge: 24 * 60 * 60 * 1000 // 24 hours
 }));
-
 
 const handle404 = (req, res, next) => {
   res.status(404).send("<h1>ERROR 404</h1> <h2>Ruta No encontrada</h2><p><a href='/'>Puede volver al inicio</a><br></p>");
@@ -43,7 +34,6 @@ app.use(express.static(path.join(__dirname, 'views')));
 app.use(express.static('./public'));
 app.use(methodOverride('_method'));
 app.use(handle404);
-
 
 app.listen(APP_PORT, () => {
     console.log(`App escuchando en http://localhost:${APP_PORT}`);

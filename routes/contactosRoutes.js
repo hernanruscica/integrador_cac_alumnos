@@ -3,13 +3,14 @@ const contactosController = require('../controllers/contactosController');
 var router = express.Router();
 const path = require('path');//
 const multer = require('multer');
+
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'public/imgs');
       },
     filename: function (req, file, cb) {        
-        const fileExtension = path.extname(file.originalname);
-        //console.log(fileExtension);
+        const fileExtension = path.extname(file.originalname);        
         cb(null, Date.now() + '- foto_perfil' + fileExtension);
       }
 });
@@ -26,4 +27,4 @@ router.post('/editar/:id', upload.fields([{ name: 'image', maxCount: 1 }, { name
 router.post('/resultados_busqueda', contactosController.searchResults);
 router.get('/', contactosController.index);
 
-module.exports = router;  
+module.exports = router;   

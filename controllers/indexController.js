@@ -5,8 +5,9 @@ const bcrypt = require('bcrypt') ;
 module.exports = {
     index: (req, res) => {res.render('index')},
     registrar_form: (req, res) => {res.render('register')},
-    login: (req, res) => {res.render('login')},
-    autenticar: async (req, res) => {
+    //{req.session.usuario ? res.render('addnew', {nombre: req.session.usuario.nombre}) : res.redirect('/registrarse')}
+    login: (req, res) => {req.session.usuario ? res.redirect('/contactos') : res.render('login')},
+    autenticar: (req, res) => {
         const nombre = req.body.nombre;
         const passwordTextoPlano = req.body.contrasenia;
          indexModel.getOne(nombre, conexion, async (err, results) => {
@@ -38,6 +39,7 @@ module.exports = {
                         res.render('login');
                     } else {
                         console.log("error al registrar usuario en la bd");
+                        res.render('register');
                     }
                 })
             } 
