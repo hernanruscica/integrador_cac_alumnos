@@ -18,3 +18,4 @@ DROP TABLE usuarios;
 ALTER TABLE contactos MODIFY COLUMN imagen varchar(255) NOT NULL;
 
 ALTER TABLE usuarios MODIFY COLUMN nombre varchar(255) NOT NULL UNIQUE;
+

@@ -7,5 +7,9 @@ module.exports = {
     },
     addOne: (formData, conection, myFunction) => {
         conection.query(`INSERT INTO usuarios (nombre, contrasenia, correo) VALUES ('${formData.nombre}', '${formData.contrasenia}', '${formData.correo}');`, myFunction);
+    },
+    updateIdRecovery: (id, idRecovery, conection, myFunction) => {
+        //en esta tabla siempre hay un registro para todos los usuarios, haya no haya pedido la recuperacion de contraseña
+        conection.query(`UPDATE recuperaciones_correo SET id_recuperacion = '${idRecovery}' WHERE usuario_id = ${id}`)
     }
 }

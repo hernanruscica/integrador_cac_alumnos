@@ -78,12 +78,28 @@ module.exports = {
         res.redirect('/');
     },
     recuperar_verform: (req, res) => {
-        res.render('recovery_form');
+
+        let idUsuario = req.params.id_usuario;
+        let idRecuperacion = req.params.id_recuperacion;   
+        let idRecuperacionAcomparar = null ;                      
+
+        if (idUsuario === undefined){
+            res.render('recovery_form');
+        }else{
+
+                //me falta traer el id de recuperacion de la BD para compararlo aca....
+
+            if (idRecuperacion == 'lucho'){
+                res.send(`id de recuperacion: "${idRecuperacion}" CORRECTO del idUsuario: ${idUsuario}`);
+            }else{
+                res.send("id de recuperacion incorrecto");
+            }
+        }
     },
-    recuperar: async (req, res) => {     
+    enviar_enlace: async (req, res) => {     
         
         // Crear una función para enviar un correo electrónico
-        async function enviarCorreo(email, password) {
+        async function enviarCorreo(email, id, id_recuperacion) {
             // Configurar el servicio de correo electrónico
             let transporter = nodemailer.createTransport({
             host: 'smtp.correoseguro.co',
@@ -99,8 +115,8 @@ module.exports = {
             let mailOptions = {
             from: 'info@ruscica-code.ar',
             to: email,
-            subject: 'Recuperación de contraseña',
-            text: `Tu contraseña es: ${password}`
+            subject: 'Recuperación de contraseña - Agenda codo a codo',
+            text: `Siga este enlace para poder restablecer la contraseña: https://agenda-cac.onrender.com/recuperar_pass/${id}/${id_recuperacion}`
             };
         
             // Enviar el correo electrónico
@@ -113,8 +129,17 @@ module.exports = {
                 if (!err){                        
                     //console.log(results.length);                               
                     if (results.length > 0){                    
-                        // Enviar la contraseña por correo electrónico
-                        enviarCorreo(results[0].correo, results[0].contrasenia);    
+                        // Enviar el enlace con el id hasheado por correo electrónico
+                        let usuario = results[0];
+                        let id_recuperacion = 'pepe';
+                        indexModel.updateIdRecovery(usuario.id, id_recuperacion, conexion,  (err, results) => {
+                            if (!err) {
+                                console.log('id de recuperacion insertado con exito');
+                            }else{
+                                console.log(err);
+                            }
+                        });
+                        enviarCorreo(results[0].correo, usuario.id, id_recuperacion);    
                         res.status(200).send(`Se le enviará un correo para restablecer la contraseña a ${results[0].nombre}`)
                     }else{
                         res.status(200).send(`usuario NO encontrado!`)
