@@ -10,5 +10,7 @@ router.post('/autenticar', indexController.autenticar);
 router.post('/registrarse', indexController.registrar);
 router.get("/session/:id", indexController.create_session);
 router.get('/salir', indexController.salir);
+router.get('/recuperar_pass', indexController.recuperar_verform);
+router.post('/recuperar_pass', indexController.recuperar);
  
 module.exports = router;  

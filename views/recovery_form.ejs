@@ -1,0 +1,28 @@
+<%- include('partials/cabecera', {titulo: "Agenda Telefónica - Recuperación de contraseña",  estilos_ruta: "/"}) %>   
+<!--HEADER TERMINA-->
+
+    <!--MAIN COMIENZA-->
+    <main class="">             
+        <form class = "formulario" action="/recuperar_pass" method="post">        
+            <div class="contenedor">
+                <h2 class="formulario__titulo">Recuperación de contraseña</h2>      
+                <p>Para poder recuperar su contraseña, tiene que ingresar su <strong>nombre de usuario</strong> con el que se registro.</p>                   
+                <p>Se le enviará un correo electrónico con un enlace para restablecer la contraseña.</p>
+                <div class="formulario__fila">
+                    <div class="formulario__fila__campo">
+                        <label class = "formulario__campo__label" for="nombre">Nombre de usuario:</label>                        
+                        <input class = "formulario__campo__input" type="text" name="nombre" id = "nombre" placeholder="Ingrese su nombre de usuario.">
+                        <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
+                    </div>                    
+                </div>                   
+                <input class="formulario__campo__btn" type="submit" value="Enviar correo">                                             
+            </div>
+        </form>             
+       
+    </main>
+    <!--MAIN TERMINA-->   
+
+    <!--FOOTER COMIENZA-->
+    <%- include('partials/piedepagina', {scripts_ruta: "scripts/"}) %>        
+</body>
+</html>
