@@ -11,7 +11,7 @@
                 <div class="formulario__fila">
                     <div class="formulario__fila__campo">
                         <label class = "formulario__campo__label" for="nombre">Nombre de usuario:</label>                        
-                        <input class = "formulario__campo__input" type="text" name="nombre" id = "nombre" placeholder="Ingrese su nombre de usuario.">
+                        <input class = "formulario__campo__input" type="text" name="nombre" id = "nombre" placeholder="Ingrese su nombre de usuario." required>
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
                     </div>                    
                 </div>                   
@@ -23,6 +23,6 @@
     <!--MAIN TERMINA-->   
 
     <!--FOOTER COMIENZA-->
-    <%- include('partials/piedepagina', {scripts_ruta: "scripts/"}) %>        
+    <%- include('partials/piedepagina', {scripts_ruta: ""}) %>        
 </body>
 </html>

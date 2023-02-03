@@ -17,30 +17,30 @@
                     <div class="formulario__fila__campo__foto-info">
                         <label class = "formulario__campo__label" for="image">Foto de perfíl:</label>
                         <input type="file" id="foto-perfil" name="image">
-                        <input type="hidden" name="imagen_actual" value="<%= contacto.imagen %>">
+                        <input type="hidden" name="imagen_actual" value="<%= contacto.imagen %>" required>
                     </div>
                 </div>
                 <div class="formulario__fila">
                     <div class="formulario__fila__campo">
                         <label class = "formulario__campo__label" for="nombres">Nombres</label>                        
-                        <input class = "formulario__campo__input" type="text" name="nombres" id = "nombres" value="<%= contacto.nombres %>">
+                        <input class = "formulario__campo__input" type="text" name="nombres" id = "nombres" value="<%= contacto.nombres %>" required>
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
                     </div>
                     <div class="formulario__fila__campo">
                         <label class = "formulario__campo__label" for="apellidos">Apellidos</label>
-                        <input class = "formulario__campo__input" type="text" name="apellidos" id = "apellidos" value="<%= contacto.apellidos %>">
+                        <input class = "formulario__campo__input" type="text" name="apellidos" id = "apellidos" value="<%= contacto.apellidos %>" required>
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
                     </div>
                 </div>
                 <div class="formulario__fila">
                     <div class="formulario__fila__campo">
                         <label class = "formulario__campo__label" for="telefono">Número de teléfono</label>
-                        <input class = "formulario__campo__input" type="text" name="telefono" id = "telefono" value="<%= contacto.telefono %>">
+                        <input class = "formulario__campo__input" type="text" name="telefono" id = "telefono" value="<%= contacto.telefono %>" required>
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio /formato no valido</label>
                     </div>
                     <div class="formulario__fila__campo">
                         <label class = "formulario__campo__label" for="email">Correo Electrónico</label>
-                        <input class = "formulario__campo__input" type="text" name="email" id = "email" value="<%= contacto.correo %>">
+                        <input class = "formulario__campo__input" type="email" name="email" id = "email" value="<%= contacto.correo %>" required>
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio / formato no valido</label>
                     </div>
                 </div>

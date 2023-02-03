@@ -10,12 +10,12 @@
                 <div class="formulario__fila">
                     <div class="formulario__fila__campo">
                         <label class = "formulario__campo__label" for="nombre">Usuario:</label>                        
-                        <input class = "formulario__campo__input" type="text" name="nombre" id = "nombre" placeholder="Ingrese su nombre de usuario.">
+                        <input class = "formulario__campo__input" type="text" name="nombre" id = "nombre" placeholder="Ingrese su nombre de usuario." required>
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
                     </div>
                     <div class="formulario__fila__campo">
                         <label class = "formulario__campo__label" for="contrasenia">Contrasenia:</label>
-                        <input class = "formulario__campo__input" type="password" name = "contrasenia" id = "contrasenia" placeholder="Ingrese su contrasenia.">
+                        <input class = "formulario__campo__input" type="password" name = "contrasenia" id = "contrasenia" placeholder="Ingrese su contrasenia." required>
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
                     </div>
                 </div>   
@@ -30,6 +30,6 @@
     <!--MAIN TERMINA-->   
 
     <!--FOOTER COMIENZA-->
-    <%- include('partials/piedepagina', {scripts_ruta: "scripts/"}) %>        
+    <%- include('partials/piedepagina', {scripts_ruta: ""}) %>        
 </body>
 </html>
