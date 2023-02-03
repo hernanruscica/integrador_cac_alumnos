@@ -10,6 +10,12 @@ module.exports = {
     },
     updateIdRecovery: (id, idRecovery, conection, myFunction) => {
         //en esta tabla siempre hay un registro para todos los usuarios, haya no haya pedido la recuperacion de contraseña
-        conection.query(`UPDATE recuperaciones_correo SET id_recuperacion = '${idRecovery}' WHERE usuario_id = ${id}`)
+        conection.query(`UPDATE recuperaciones_correo SET id_recuperacion = '${idRecovery}' WHERE usuario_id = ${id}`, myFunction)
+    },
+    getIdRecovery: (id, conection, myFunction) => {
+        conection.query(`SELECT id_recuperacion FROM recuperaciones_correo WHERE usuario_id='${id}'`, myFunction)
+    },
+    changePass: (id, pass, conection, myFunction) => {
+        conection.query(`UPDATE usuarios SET contrasenia = '${pass}' WHERE id = '${id}'`, myFunction);
     }
 }

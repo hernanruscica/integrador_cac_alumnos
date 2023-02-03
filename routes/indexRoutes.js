@@ -13,5 +13,6 @@ router.get('/salir', indexController.salir);
 router.get('/recuperar_pass', indexController.recuperar_verform);
 router.get('/recuperar_pass/:id_usuario/:id_recuperacion', indexController.recuperar_verform);
 router.post('/recuperar_pass', indexController.enviar_enlace);
+router.post('/cambiar_pass', indexController.changePass);
  
 module.exports = router;  

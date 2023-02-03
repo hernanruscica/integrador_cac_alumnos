@@ -20,6 +20,7 @@ module.exports = {
                         res.redirect(`/session/${results[0].id}`);                                      
                     }else {
                         console.log("contrasenia no valida");
+                        res.redirect('/ingresar');
                     }
                 }else{ 
                     console.log("no encontró ningún usuario con ese nombre");
@@ -62,38 +63,31 @@ module.exports = {
             }
         })   
     },
-    salir: (req, res) => {
-        /*
-        req.session.destroy((err) => {
-            if (err) {
-              console.log("Error destroying session");
-            } else {
-              console.log("Session destroyed successfully");
-              res.redirect('/');
-            }
-          });
-          */
+    salir: (req, res) => {        
         console.log("Session destroyed successfully");
         req.session.usuario = undefined;
         res.redirect('/');
     },
-    recuperar_verform: (req, res) => {
+    recuperar_verform: async (req, res) => {
 
         let idUsuario = req.params.id_usuario;
         let idRecuperacion = req.params.id_recuperacion;   
-        let idRecuperacionAcomparar = null ;                      
 
         if (idUsuario === undefined){
             res.render('recovery_form');
         }else{
+            //me falta traer el id de recuperacion de la BD para compararlo aca....
+            await indexModel.getIdRecovery(idUsuario, conexion, (err, results) => {
+                console.log(results[0].id_recuperacion)
+                let idRecuperacionAcomparar = results[0].id_recuperacion;
 
-                //me falta traer el id de recuperacion de la BD para compararlo aca....
-
-            if (idRecuperacion == 'lucho'){
-                res.send(`id de recuperacion: "${idRecuperacion}" CORRECTO del idUsuario: ${idUsuario}`);
-            }else{
-                res.send("id de recuperacion incorrecto");
-            }
+                if (idRecuperacion == idRecuperacionAcomparar){                
+                    //res.send(`id de recuperacion: "${idRecuperacion}" CORRECTO del idUsuario: ${idUsuario}`);
+                    res.render('reset_password', {id: idUsuario});
+                }else{
+                    res.send("id de recuperacion incorrecto");
+                }
+            }) ;
         }
     },
     enviar_enlace: async (req, res) => {     
@@ -115,8 +109,11 @@ module.exports = {
             let mailOptions = {
             from: 'info@ruscica-code.ar',
             to: email,
-            subject: 'Recuperación de contraseña - Agenda codo a codo',
-            text: `Siga este enlace para poder restablecer la contraseña: https://agenda-cac.onrender.com/recuperar_pass/${id}/${id_recuperacion}`
+            subject: 'Restablecimiento de contraseña - Agenda codo a codo',
+            html: ` <h1>Agenda codo a codo</h1>
+                    <h2>Sistema de restablecimiento de contraseñas</h2>
+                    <p>Siga este enlace para poder restablecer la contraseña: <a href="http://localhost:10000/recuperar_pass/${id}/${id_recuperacion}">Restablecer contraseña - Mi Agenda app</a></p>
+                    `
             };
         
             // Enviar el correo electrónico
@@ -125,22 +122,30 @@ module.exports = {
         let userName = req.body.nombre;
         try{
             //busco el usuario que exista en la BD.
-            await indexModel.getOne(userName, conexion, (err, results) => {                
+            await indexModel.getOne(userName, conexion, async (err, results) => {                
                 if (!err){                        
                     //console.log(results.length);                               
                     if (results.length > 0){                    
                         // Enviar el enlace con el id hasheado por correo electrónico
-                        let usuario = results[0];
-                        let id_recuperacion = 'pepe';
-                        indexModel.updateIdRecovery(usuario.id, id_recuperacion, conexion,  (err, results) => {
+                        let usuario = results[0];                        
+                        let palabraSecreta = "$2b$08$ySqpvxkIb42Nhx.ZPz9g3eWSljUQi5hV9b1KbvRvRvQ/OcD974obe"
+                        let id_recuperacion = await bcrypt.hash(`${usuario.nombre}${palabraSecreta}`, 8);
+                        id_recuperacion = id_recuperacion.replaceAll('/', '');
+
+                        await indexModel.updateIdRecovery(usuario.id, id_recuperacion, conexion,  (err, results) => {
                             if (!err) {
-                                console.log('id de recuperacion insertado con exito');
+                                console.log('id de recuperacion insertado con exito');                                
                             }else{
                                 console.log(err);
                             }
                         });
-                        enviarCorreo(results[0].correo, usuario.id, id_recuperacion);    
-                        res.status(200).send(`Se le enviará un correo para restablecer la contraseña a ${results[0].nombre}`)
+                        enviarCorreo(usuario.correo, usuario.id, id_recuperacion);    
+                        res.status(200).send(`
+                                            <h1>Correo enviado correctamente!</h1>
+                                            <p>Se envió un correo para restablecer la contraseña a ${usuario.correo}</p>
+                                            <p>Revise su casilla de correo electrónico</p>
+                                            <p>Mientras puede volver a la página de inicio haciendo<a href='/'>Click Acá!</a>
+                                            `)
                     }else{
                         res.status(200).send(`usuario NO encontrado!`)
                     }
@@ -152,5 +157,19 @@ module.exports = {
         }catch (error){
             res.status(500).send(error.message);
         }
+    },
+    changePass: async (req, res) => {
+        console.log("changepass function");
+        let id = req.body.id;
+        let pass = req.body.contrasenia;
+        let passHasheada = await bcrypt.hash(pass, 8);
+        await indexModel.changePass(id, passHasheada, conexion, (err, results) => {
+            if (!err){
+                console.log("password cambiada exitosamente con hash");
+                res.redirect('/ingresar');
+            }else{
+                console.log("error mientras se cambiaba la password");
+            }
+        })
     }
 } 

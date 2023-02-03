@@ -4,4 +4,5 @@ SELECT * FROM usuarios;
 SELECT * FROM contactos;
 SELECT * FROM recuperaciones_correo;
 
-SELECT id_recuperacion FROM recuperaciones_correo WHERE usuario_id = "1";
+SELECT id_recuperacion FROM recuperaciones_correo WHERE usuario_id = "5";
+
