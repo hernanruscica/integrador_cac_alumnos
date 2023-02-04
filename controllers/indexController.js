@@ -123,7 +123,7 @@ module.exports = {
             await transporter.sendMail(mailOptions);
         }
         let userName = req.body.nombre;
-        try{
+        //try{
             //busco el usuario que exista en la BD.
             await indexModel.getOne(userName, conexion, async (err, results) => {                
                 if (!err){                        
@@ -157,10 +157,11 @@ module.exports = {
                     res.status(400).send("error en la consulta");
                 }     
             })       
-
+/*
         }catch (error){
             res.status(500).send(error.message);
         }
+        */
     },
     changePass: async (req, res) => {
         console.log("changepass function");
