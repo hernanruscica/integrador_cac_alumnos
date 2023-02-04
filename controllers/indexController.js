@@ -1,7 +1,8 @@
 const conexion = require("../models/conexion_db");
 const indexModel = require("../models/indexModel");
 const bcrypt = require('bcrypt') ;
-const nodemailer = require('nodemailer');
+
+const utilidades = require('../config/utilidades');
 
 module.exports = {
     index: (req, res) => {res.render('index')},
@@ -93,76 +94,41 @@ module.exports = {
         }
     },
     enviar_enlace: async (req, res) => {     
-        
-        // Crear una función para enviar un correo electrónico
-        async function enviarCorreo(email, id, id_recuperacion) {
-            // Configurar el servicio de correo electrónico
-            let transporter = nodemailer.createTransport({
-            host: 'smtp.correoseguro.co',
-            port: 587,
-            secure: false,
-            auth: {
-                user: 'agenda@ruscica-code.ar',
-                pass: 'B4rt0n2018'
-            },
-            tls : { rejectUnauthorized: false }
-            });
-        
-            // Definir los detalles del correo electrónico
-            let mailOptions = {
-            from: 'info@ruscica-code.ar',
-            to: email,
-            subject: 'Restablecimiento de contraseña - Agenda codo a codo',
-            html: ` <h1>Agenda codo a codo</h1>
-                    <h2>Sistema de restablecimiento de contraseñas</h2>
-                    <p>Siga este enlace para poder restablecer la contraseña: <a href="http://localhost:10000/recuperar_pass/${id}/${id_recuperacion}">Restablecer contraseña - Mi Agenda app</a></p>
-                    `
-            };
-        
-            // Enviar el correo electrónico
-            await transporter.sendMail(mailOptions);
-        }
         let userName = req.body.nombre;
-        //try{
-            //busco el usuario que exista en la BD.
-            await indexModel.getOne(userName, conexion, async (err, results) => {                
-                if (!err){                        
-                    //console.log(results.length);                               
-                    if (results.length > 0){                    
-                        // Enviar el enlace con el id hasheado por correo electrónico
-                        let usuario = results[0];                        
-                        let palabraSecreta = "$2b$08$ySqpvxkIb42Nhx.ZPz9g3eWSljUQi5hV9b1KbvRvRvQ/OcD974obe"
-                        let id_recuperacion = null;
-                        await function() {
-                            id_recuperacion = bcrypt.hash(`${usuario.nombre}${palabraSecreta}`, 8);
-                            id_recuperacion = id_recuperacion.replaceAll('/', '');
-                            indexModel.updateIdRecovery(usuario.id, id_recuperacion, conexion,  (err, results) => {
-                                if (!err) {
-                                    console.log('id de recuperacion insertado con exito');    
-                                    enviarCorreo(usuario.correo, usuario.id, id_recuperacion);    
-                                    res.status(200).send(`
-                                                <h1>Correo enviado correctamente!</h1>
-                                                <p>Se envió un correo para restablecer la contraseña a ${usuario.correo}</p>
-                                                <p>Revise su casilla de correo electrónico</p>
-                                                <p>Mientras puede volver a la página de inicio haciendo<a href='/'>Click Acá!</a>
-                                                `);                            
-                                }else{
-                                    console.log(err);
-                                }
-                            });
+        
+        //busco el usuario que exista en la BD.
+        await indexModel.getOne(userName, conexion, async (err, results) => {                
+            if (!err){                        
+                //console.log(results.length);                               
+                if (results.length > 0){                    
+                    // Enviar el enlace con el id hasheado por correo electrónico
+                    let usuario = results[0];                        
+                    let palabraSecreta = "$2b$08$ySqpvxkIb42Nhx.ZPz9g3eWSljUQi5hV9b1KbvRvRvQ/OcD974obe"
+                    let id_recuperacion = null;
+
+                    id_recuperacion = bcrypt.hashSync(`${usuario.nombre}${palabraSecreta}`, 8);
+                    id_recuperacion = id_recuperacion.replaceAll('/', '');
+                    await indexModel.updateIdRecovery(usuario.id, id_recuperacion, conexion,  (err, results) => {
+                        if (!err) {
+                            console.log('id de recuperacion insertado con exito');    
+                            utilidades.enviarCorreo(usuario.correo, usuario.id, id_recuperacion);    
+                            res.status(200).send(`
+                                        <h1>Correo enviado correctamente!</h1>
+                                        <p>Se envió un correo para restablecer la contraseña a ${usuario.correo}</p>
+                                        <p>Revise su casilla de correo electrónico</p>
+                                        <p>Mientras puede volver a la página de inicio haciendo<a href='/'>Click Acá!</a>
+                                        `);                            
+                        }else{
+                            console.log(err);
                         }
-                    }else{
-                        res.status(200).send(`usuario NO encontrado!`)
-                    }
+                    });                        
                 }else{
-                    res.status(400).send("error en la consulta");
-                }     
-            })       
-/*
-        }catch (error){
-            res.status(500).send(error.message);
-        }
-        */
+                    res.status(200).send(`usuario NO encontrado!`)
+                }
+            }else{
+                res.status(400).send("error en la consulta");
+            }     
+        })       
     },
     changePass: async (req, res) => {
         console.log("changepass function");
