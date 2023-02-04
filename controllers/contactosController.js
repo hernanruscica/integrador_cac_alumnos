@@ -27,8 +27,8 @@ function subirFotoAlServidor (nombreArchivo){
 }
 
 module.exports = {
-    addNew : (req, res) => {req.session.usuario ? res.render('addnew', {nombre: req.session.usuario.nombre}) : res.redirect('/registrarse')},
-    search : (req, res) => {req.session.usuario ? res.render('search', {nombre: req.session.usuario.nombre}) : res.redirect('/registrarse')},
+addNew : (req, res) => {req.session.usuario ? res.render('addnew', {nombre: req.session.usuario.nombre}) : res.redirect('/registrarse')/*usuario no logueado*/},
+    search : (req, res) => {req.session.usuario ? res.render('search', {nombre: req.session.usuario.nombre}) : res.redirect('/registrarse')/*usuario no logueado*/},
     searchResults: (req, res) => {    
         if (req.session.usuario){    
             const formData = req.body;  
@@ -42,7 +42,8 @@ module.exports = {
                 }
                 }) 
         }else{
-            res.redirect('/registrarse');
+            res.redirect('/registrarse');/*usuario no logueado*/
+            console.log("Usuario no logueado");
         }       
     },
     getAll : (req, res) => {
@@ -57,7 +58,8 @@ module.exports = {
             }
             })
         }else{
-            res.redirect('/registrarse');
+            res.redirect('/registrarse');/*usuario no logueado*/
+            console.log("Usuario no logueado");
         }
     },
     addNewResult : (req, res) => {
@@ -76,7 +78,8 @@ module.exports = {
                 }
             })
         }else{
-            res.redirect('/registrarse');
+            res.redirect('/registrarse');/*usuario no logueado*/
+            console.log("Usuario no logueado");
         }
     },
     delete: (req, res) => {
@@ -91,7 +94,8 @@ module.exports = {
                 }
             })
         }else{
-            res.redirect('/registrarse');
+            res.redirect('/registrarse');/*usuario no logueado*/
+            console.log("Usuario no logueado");
         }
     },
     edit: (req, res) => {
@@ -104,7 +108,8 @@ module.exports = {
                 }
             })
         }else{
-            res.redirect('/registrarse');
+            res.redirect('/registrarse');/*usuario no logueado*/
+            console.log("Usuario no logueado");
         }
     },
     editResult: (req, res) => {
@@ -128,10 +133,11 @@ module.exports = {
                 }
             })
         }else{ 
-            res.redirect('/registrarse');
+            res.redirect('/registrarse');/*usuario no logueado*/
+            console.log("Usuario no logueado");
         }
     },
     index: (req, res) => {        
-        req.session.usuario ? res.render('contacts_index', {nombre: req.session.usuario.nombre}) : res.redirect('/registrarse');
+        req.session.usuario ? res.render('contacts_index', {nombre: req.session.usuario.nombre}) : res.redirect('/registrarse')/*usuario no logueado*/;
     }
 } 

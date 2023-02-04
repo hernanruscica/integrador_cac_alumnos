@@ -24,9 +24,11 @@ module.exports = {
                     }
                 }else{ 
                     console.log("no encontró ningún usuario con ese nombre");
+                    res.redirect('/ingresar');
                 }                
             }else{
                 console.log("Error en la busqueda del usuario en la BD");
+                res.redirect('/ingresar');
             }
         })
     },
@@ -102,7 +104,8 @@ module.exports = {
             auth: {
                 user: 'agenda@ruscica-code.ar',
                 pass: 'B4rt0n2018'
-            }
+            },
+            tls : { rejectUnauthorized: false }
             });
         
             // Definir los detalles del correo electrónico
@@ -134,18 +137,19 @@ module.exports = {
 
                         await indexModel.updateIdRecovery(usuario.id, id_recuperacion, conexion,  (err, results) => {
                             if (!err) {
-                                console.log('id de recuperacion insertado con exito');                                
-                            }else{
-                                console.log(err);
-                            }
-                        });
-                        enviarCorreo(usuario.correo, usuario.id, id_recuperacion);    
-                        res.status(200).send(`
+                                console.log('id de recuperacion insertado con exito');    
+                                enviarCorreo(usuario.correo, usuario.id, id_recuperacion);    
+                                res.status(200).send(`
                                             <h1>Correo enviado correctamente!</h1>
                                             <p>Se envió un correo para restablecer la contraseña a ${usuario.correo}</p>
                                             <p>Revise su casilla de correo electrónico</p>
                                             <p>Mientras puede volver a la página de inicio haciendo<a href='/'>Click Acá!</a>
-                                            `)
+                                            `);                            
+                            }else{
+                                console.log(err);
+                            }
+                        });
+                        
                     }else{
                         res.status(200).send(`usuario NO encontrado!`)
                     }
