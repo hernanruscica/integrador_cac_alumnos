@@ -106,7 +106,7 @@ module.exports = {
                     let palabraSecreta = "$2b$08$ySqpvxkIb42Nhx.ZPz9g3eWSljUQi5hV9b1KbvRvRvQ/OcD974obe"
                     let id_recuperacion = null;
 
-                    id_recuperacion = bcrypt.hashSync(`${usuario.nombre}${palabraSecreta}`, 8).replaceAll('/', '');
+                    id_recuperacion = bcrypt.hashSync(`${usuario.nombre}${palabraSecreta}`, 8).replace(/\//g, '');
                     //id_recuperacion = id_recuperacion.replaceAll('/', '');
                     await indexModel.updateIdRecovery(usuario.id, id_recuperacion, conexion,  (err, results) => {
                         if (!err) {
