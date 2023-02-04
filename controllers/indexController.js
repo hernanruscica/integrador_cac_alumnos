@@ -132,24 +132,25 @@ module.exports = {
                         // Enviar el enlace con el id hasheado por correo electrónico
                         let usuario = results[0];                        
                         let palabraSecreta = "$2b$08$ySqpvxkIb42Nhx.ZPz9g3eWSljUQi5hV9b1KbvRvRvQ/OcD974obe"
-                        let id_recuperacion = await bcrypt.hash(`${usuario.nombre}${palabraSecreta}`, 8);
-                        id_recuperacion = id_recuperacion.replaceAll('/', '');
-
-                        await indexModel.updateIdRecovery(usuario.id, id_recuperacion, conexion,  (err, results) => {
-                            if (!err) {
-                                console.log('id de recuperacion insertado con exito');    
-                                enviarCorreo(usuario.correo, usuario.id, id_recuperacion);    
-                                res.status(200).send(`
-                                            <h1>Correo enviado correctamente!</h1>
-                                            <p>Se envió un correo para restablecer la contraseña a ${usuario.correo}</p>
-                                            <p>Revise su casilla de correo electrónico</p>
-                                            <p>Mientras puede volver a la página de inicio haciendo<a href='/'>Click Acá!</a>
-                                            `);                            
-                            }else{
-                                console.log(err);
-                            }
-                        });
-                        
+                        let id_recuperacion = null;
+                        await function() {
+                            id_recuperacion = bcrypt.hash(`${usuario.nombre}${palabraSecreta}`, 8);
+                            id_recuperacion = id_recuperacion.replaceAll('/', '');
+                            indexModel.updateIdRecovery(usuario.id, id_recuperacion, conexion,  (err, results) => {
+                                if (!err) {
+                                    console.log('id de recuperacion insertado con exito');    
+                                    enviarCorreo(usuario.correo, usuario.id, id_recuperacion);    
+                                    res.status(200).send(`
+                                                <h1>Correo enviado correctamente!</h1>
+                                                <p>Se envió un correo para restablecer la contraseña a ${usuario.correo}</p>
+                                                <p>Revise su casilla de correo electrónico</p>
+                                                <p>Mientras puede volver a la página de inicio haciendo<a href='/'>Click Acá!</a>
+                                                `);                            
+                                }else{
+                                    console.log(err);
+                                }
+                            });
+                        }
                     }else{
                         res.status(200).send(`usuario NO encontrado!`)
                     }
