@@ -70,8 +70,9 @@ module.exports = {
     },
     addNewResult : (req, res) => {
         if (req.session.usuario){
-            const formData = req.body;
-            const nombreImagen = req.files.image[0].filename; 
+            const formData = req.body;            
+
+            const nombreImagen = (req.files.image) ? req.files.image[0].filename : 'dafault_avatar.png'; 
             let id = req.session.usuario.id;    
             subirFotoAlServidor(nombreImagen);   
             contactosModel.addNewResult(id, conexion, formData, nombreImagen,(err, results) => { 
@@ -148,5 +149,17 @@ module.exports = {
     },
     index: (req, res) => {        
         req.session.usuario ? res.render('contacts_index', {nombre: req.session.usuario.nombre, mensaje: null}) : res.redirect('/registrarse')/*usuario no logueado*/;
+    },
+    showContact: async (req, res) => {
+        let id = (req.params) ?  req.params.id : 'x';
+        await contactosModel.getOne(id, conexion, (err, results) =>{
+            if (!err){
+                if (results.length > 0){                      
+                    res.render('view_contact', {titulo: 'Ver Contacto', contact: results[0], nombre: req.session.usuario.nombre});
+                }else {
+                    res.send(`El contacto con id: ${id} NO existe!`);  
+                }
+            }
+        })              
     }
 } 

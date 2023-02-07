@@ -23,12 +23,9 @@ $d.addEventListener('click', (e) => {
             id = e.target.parentElement.dataset.id;
         }            
         if(accion == "eliminar_contacto"){
-            console.log(`Eliminando el elemento con id: ${id}`);    
-
+            console.log(`Eliminando el elemento con id: ${id}`); 
             let query = `#name${id}`;
-            contacto = $d.querySelector(query).innerHTML;
-
-            //console.log(contacto);
+            contacto = $d.querySelector(query).innerHTML;            
             Swal.fire({
                 title: 'Eliminación de contacto.',
                 text: `Confirma la eliminacion de ${contacto} de la agenda?. Esta acción no se puede deshacer`,
@@ -52,28 +49,17 @@ $d.addEventListener('click', (e) => {
                                 location.reload();         
                             }
                         }); 
-                        
-                        
                     })
                     .catch(error => {
                         // manejar error
                         console.log("error al borrar el elemento");
                     });
                 }
-            })
-            /*
-            if (confirm(`Confirma la eliminacion a ${contacto} de la agenda?`)){
-                fetch(`/contactos/eliminar/${id}`, { method: 'DELETE' })
-                .then(response => {
-                // manejar respuesta exitosa              
-                location.reload();              
-                })
-                .catch(error => {
-                // manejar error
-                console.log("error al borrar el elemento");
-                });
-            }           
-            */
+            })            
+        }
+        if(accion == "ver_contacto"){
+            console.log(`Mostrando el elemento con id: ${id}`); 
+            window.location.href = `/contactos/ver/${id}`;   
         }
     
 });

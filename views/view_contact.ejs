@@ -1,0 +1,60 @@
+
+<%- include('partials/cabecera', {titulo: "Agenda Telefónica - Ver contactos",  estilos_ruta: "/contactos/"}) %>   
+    <!--MAIN COMIENZA-->
+    <main class="">      
+        <form class = "formulario"  method="post">
+            
+            <%- include('partials/menu_contactos') %>
+
+            <div class="contenedor">
+                <h2 class="formulario__titulo"><%= titulo %></h2>
+
+                <!--Una tarjeta de un contacto Con un display grid de tres componentes-->
+                <section class="contactos-tarjeta">
+                    <div class="contactos-tarjeta__img-container">
+                        <img src="https://ruscica-code.ar/uploads/<%= contact.imagen%>" alt="" class="contactos-tarjeta__img-container__img">
+                    </div>
+
+                    <div class="contactos-tarjeta__titulo">
+                        
+                        <span  class="contactos-tarjeta__titulo__texto"  id="name<%= contact.id %>" ><%= contact.nombres + " " + contact.apellidos %></span>
+                        <div class="contactos-tarjeta__titulo__botones">                                                     
+                            <a class="contactos-tarjeta__titulo__botones__btn  btn-editar" href="/contactos/editar/<%= contact.id %>"  
+                                id="editar_contacto">                                
+                                <span class="contactos-tarjeta__titulo__botones__btn__texto">EDITAR</span>
+                                <i class="fa-solid fa-pen-to-square "></i>
+                            </a>                                                    
+                            <div class="contactos-tarjeta__titulo__botones__btn  btn-borrar"  id="eliminar_contacto" data-id="<%= contact.id %>">
+                                <span class="contactos-tarjeta__titulo__botones__btn__texto">ELIMinaR</span>
+                                <i class="fa-solid fa-trash-can"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contactos-tarjeta__data">
+                        <div class="contactos-tarjeta__data__item">                           
+                            <i class="fa-regular fa-envelope"></i>                            
+                            <label id = "correo"><%= contact.correo %></label>
+                            <i class="fa-regular fa-copy  btn-copiar" data-id=""></i>
+                        </div>
+                        <div class="contactos-tarjeta__data__item">                           
+                            <i class="fa-solid fa-phone"></i>
+                            <label id = "telefono"><%= contact.telefono %></label>
+                            <i class="fa-regular fa-copy  btn-copiar" data-id=""></i>
+                        </div>
+                    </div>
+                </section>                                   
+            </div>
+        </form>             
+       
+    </main>
+    <!--MAIN TERMINA--> 
+
+    <!--FOOTER COMIENZA-->
+    <%- include('partials/piedepagina') %>   
+    <!--FOOTER TERMINA-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>  
+    <script src="/scripts/acciones_botones.js"></script>
+</body>
+</html>

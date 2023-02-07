@@ -25,6 +25,7 @@ const indexRouter = require('./routes/indexRoutes');
 const contactoRouter = require('./routes/contactosRoutes');
 
 const APP_PORT = process.env.APP_PORT || 10000;
+const APP_URL = process.env.APP_URL
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -36,5 +37,5 @@ app.use(methodOverride('_method'));
 app.use(handle404);
 
 app.listen(APP_PORT, () => {
-    console.log(`App escuchando en http://localhost:${APP_PORT}`);
+    console.log(`App escuchando en ${APP_URL}:${APP_PORT}`);
 })
