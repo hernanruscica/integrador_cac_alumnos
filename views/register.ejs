@@ -1,6 +1,7 @@
     <%- include('partials/cabecera', {titulo: "Agenda Telefónica - Registro de usuario",  estilos_ruta: "/"}) %>      
     <!--HEADER TERMINA-->
 
+    
     <!--MAIN COMIENZA-->
     <main class="">             
         <form class = "formulario" action="/registrarse" method="post">           
@@ -32,15 +33,35 @@
                 </div>   
                 <p>Ya tiene su cuenta? Puede <a href="/ingresar">ingresar aqui!</a></p>
                 <input class="formulario__campo__btn" type="submit" value="Registrarse">                              
-               
+                
             </div>
         </form>             
        
     </main>
     <!--MAIN TERMINA-->   
 
+   
     
     <!--FOOTER COMIENZA-->
-    <%- include('partials/piedepagina', {scripts_ruta: "scripts/"}) %>    
+    <%- include('partials/piedepagina') %>   
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>    
+    <script src="/scripts/validaciones_pass_equal.js"></script> 
+    
+    <% if (mensaje == 'yaexiste'){ %>
+            <script>
+                Swal.fire({
+                    title: 'Error al registrarse !',
+                    text: 'Usuario y/o correo YA existe en la Base de Datos.',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+            })
+            </script>    
+        <%
+        } %>
+
+        
+    
 </body>
 </html>

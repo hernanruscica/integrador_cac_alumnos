@@ -21,7 +21,7 @@ module.exports = {
             subject: 'Restablecimiento de contraseña - Agenda codo a codo',
             html: ` <h1>Agenda codo a codo</h1>
                     <h2>Sistema de restablecimiento de contraseñas</h2>
-                    <p>Siga este enlace para poder restablecer la contraseña: <a href="http://localhost:10000/recuperar_pass/${id}/${id_recuperacion}">Restablecer contraseña - Mi Agenda app</a></p>
+                    <p>Siga este enlace para poder restablecer la contraseña: <a href="${process.env.APP_URL}/recuperar_pass/${id}/${id_recuperacion}">Restablecer contraseña - Mi Agenda app</a></p>
                     `
             };    
         // Enviar el correo electrónico

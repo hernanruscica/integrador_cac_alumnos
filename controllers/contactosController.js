@@ -27,18 +27,23 @@ function subirFotoAlServidor (nombreArchivo){
 }
 
 module.exports = {
-addNew : (req, res) => {req.session.usuario ? res.render('addnew', {nombre: req.session.usuario.nombre}) : res.redirect('/registrarse')/*usuario no logueado*/},
-    search : (req, res) => {req.session.usuario ? res.render('search', {nombre: req.session.usuario.nombre}) : res.redirect('/registrarse')/*usuario no logueado*/},
+    addNew : (req, res) => {req.session.usuario ? res.render('addnew', {nombre: req.session.usuario.nombre, mensaje: null}) : res.redirect('/registrarse')/*usuario no logueado*/},
+    search : (req, res) => {req.session.usuario ? res.render('search', {nombre: req.session.usuario.nombre, mensaje: null}) : res.redirect('/registrarse')/*usuario no logueado*/},
     searchResults: (req, res) => {    
         if (req.session.usuario){    
             const formData = req.body;  
             let id = req.session.usuario.id;              
             contactosModel.searchResults(id, formData, conexion, (err, results) => {
                 if (!err){
-                    console.log("Mostrando los resultados de la busqueda");
-                    res.render('view_contacts', {contacts: results, titulo: "Resultados de la busqueda", nombre: req.session.usuario.nombre});
+                    if (results.length > 0) {
+                        console.log("Mostrando los resultados de la busqueda");
+                        res.render('view_contacts', {contacts: results, titulo: "Resultados de la busqueda", nombre: req.session.usuario.nombre, mensaje: null});
+                    }else{
+                        res.render('search', {nombre: req.session.usuario.nombre, mensaje: 'busquedasinresults'}); 
+                    }
                 }else{
                     console.log("Error en la busqueda en la BD");
+                    res.render('contacts_index', {mensaje: 'errorbd'}); 
                 }
                 }) 
         }else{
@@ -52,9 +57,10 @@ addNew : (req, res) => {req.session.usuario ? res.render('addnew', {nombre: req.
             contactosModel.getAll(usuario_id, conexion, (err, results) => {
             if (!err){
                 console.log("Mostrando todos los contactos");
-                res.render('view_contacts', {contacts: results, titulo: "Contactos", nombre: req.session.usuario.nombre});
+                res.render('view_contacts', {contacts: results, titulo: "Contactos", nombre: req.session.usuario.nombre, mensaje: null});
             }else{
                 console.log("Error en la consulta a la BD");
+                res.render('contacts_index', {mensaje: 'errorbd'}); 
             }
             })
         }else{
@@ -71,10 +77,11 @@ addNew : (req, res) => {req.session.usuario ? res.render('addnew', {nombre: req.
             contactosModel.addNewResult(id, conexion, formData, nombreImagen,(err, results) => { 
                 //redirecciona al index de contactos.
                 if (!err){
-                    console.log("Contacto agregado con exito!");
-                    res.redirect('/contactos/todos');
+                    console.log("Contacto agregado con exito!");                                        
+                    res.render('contacts_index', {nombre: req.session.usuario.nombre, mensaje: 'contactoagregado'});                     
                 }else {
                     console.log("Error en la consulta INSERT a la BD");
+                    res.render('contacts_index', {mensaje: 'errorbd'});  
                 }
             })
         }else{
@@ -104,7 +111,7 @@ addNew : (req, res) => {req.session.usuario ? res.render('addnew', {nombre: req.
             contactosModel.getOne(id, conexion, (err, results) => {
                 if (!err){
                     console.log("cargada la vista de edicion");
-                    res.render('edit', {contacto: results[0], nombre: req.session.usuario.nombre});
+                    res.render('edit', {contacto: results[0], nombre: req.session.usuario.nombre, mensaje: null});
                 }
             })
         }else{
@@ -126,10 +133,12 @@ addNew : (req, res) => {req.session.usuario ? res.render('addnew', {nombre: req.
             contactosModel.edit(id, formData, imagen, conexion, (err, results) => {
                 if (!err){
                     console.log("Datos del contacto correctamente actualizados en la BD");
-                    res.redirect('/contactos/todos');
+                    //res.redirect('/contactos/todos');
+                    res.render('contacts_index', {nombre: req.session.usuario.nombre, mensaje: 'edicioncorrecta'});
                 }else{
                     console.log("Error en la consulta UPDATE a la bd");
                     console.log(err);
+                    res.render('contacts_index', {nombre: req.session.usuario.nombre, mensaje: 'errorbd'});
                 }
             })
         }else{ 
@@ -138,6 +147,6 @@ addNew : (req, res) => {req.session.usuario ? res.render('addnew', {nombre: req.
         }
     },
     index: (req, res) => {        
-        req.session.usuario ? res.render('contacts_index', {nombre: req.session.usuario.nombre}) : res.redirect('/registrarse')/*usuario no logueado*/;
+        req.session.usuario ? res.render('contacts_index', {nombre: req.session.usuario.nombre, mensaje: null}) : res.redirect('/registrarse')/*usuario no logueado*/;
     }
 } 
