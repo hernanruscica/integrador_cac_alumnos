@@ -355,11 +355,12 @@ input[type='file']::file-selector-button {
                          "data data data data data data ";                         
     border: #333 solid 2px;    
     border-radius: 10px;
-    margin: 2em 0;
+    margin: 2em auto;    
+    max-width: 500px;
 }
 
-.contacto-tarjeta__img-container{
-    grid-area: foto-perfil;    
+.contacto-tarjeta__img-container{   
+    grid-area: foto-perfil;        
     text-align: center;
     border: #333 solid 1px;   
     border-top: none;
@@ -367,6 +368,7 @@ input[type='file']::file-selector-button {
     overflow: hidden;
     border-radius: 10px 0px 0px 0px;  
     position: relative;
+    
 }
 
 .contacto-tarjeta__titulo{
@@ -391,6 +393,7 @@ input[type='file']::file-selector-button {
     height: auto;
     object-fit: contain;
     object-position: center;  
+    
        
 }
 
@@ -403,6 +406,7 @@ input[type='file']::file-selector-button {
     background-color: rgba(0,0,0,0.5);
     width: 100%;
     padding: 0.5em 0 ;
+    
 }
 
 .contacto-tarjeta__titulo__botones{
@@ -469,24 +473,28 @@ input[type='file']::file-selector-button {
 }
 
 
-/*
+
 @media (min-width: 700px){
     .contacto-tarjeta{
         grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: auto auto auto;
-        grid-template-areas: "foto-perfil foto-perfil titulo titulo titulo titulo "
-                             "foto-perfil foto-perfil data data data data "
-                             "foto-perfil foto-perfil data data data data ";                         
+        grid-template-areas: "foto-perfil foto-perfil foto-perfil foto-perfil foto-perfil foto-perfil "
+                             "data data data data data data "
+                             "data data data data data data ";                         
         border: #333 solid 2px;    
     }
-    .contacto-tarjeta__img-container{
-        padding: 0em;  
-        border-radius: 10px 0px 0px 10px;  
-        
+    
+    .contacto-tarjeta__titulo__texto{
+        max-width: 500px;        
     }
+    
+   
+
+    
+
     .contacto-tarjeta__img-container__img{
         height: 100%;
-        max-height: 200px;
+        max-width: 500px;
         width: auto;        
         object-fit: contain;
         object-position: center;   
@@ -498,5 +506,5 @@ input[type='file']::file-selector-button {
         display: inline-block;
     }
 }
-*/  
+ 
 /***************************VER CONTACTO **********************FINALIZA    */
