@@ -17,6 +17,5 @@ module.exports = {
     searchResults: (id, formData, conection, myFunction) => {                
         conection.query(`SELECT * FROM contactos WHERE (nombres LIKE '%${formData.nombres}%' OR apellidos LIKE '%${formData.nombres}%') AND usuario_id = ${id}`, myFunction);
     }
-}
 
 } 
