@@ -11,18 +11,13 @@
                 <h2 class="formulario__titulo">Busqueda de contactos</h2>                
                 <div class="formulario__fila">
                     <div class="formulario__fila__campo">
-                        <label class = "formulario__campo__label" for="nombres">Nombres</label>                        
-                        <input class = "formulario__campo__input" type="text" name="nombres" id = "nombres" placeholder="Ingrese el/los nombres del contacto.">
+                        <label class = "formulario__campo__label" for="nombres">Su busqueda:</label>                        
+                        <input class = "formulario__campo__input" type="text" name="nombres" id = "nombres" placeholder="Ingrese el/los nombres/apellidos del contacto.">
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
-                    </div>
-                    <div class="formulario__fila__campo">
-                        <label class = "formulario__campo__label" for="apellidos">Apellidos</label>
-                        <input class = "formulario__campo__input" type="text" name="apellidos" id = "apellidos" placeholder="Ingrese el/los apellidos del contacto.">
-                        <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
-                    </div>
+                    </div>                    
                 </div>     
                 <input class="formulario__campo__btn" type="submit" value="Buscar contacto">          
-                <h2 class="formulario__titulo">Resultado:</h2>      
+                
             </div>
         </form>             
        
@@ -40,9 +35,9 @@
         <script>
             Swal.fire({
                 title: 'Busqueda sin resultados !',
-                text: 'El contacto no se encontró en la agenda. Intente nuevamente buscando con menos terminos o en un sólo campo (nombre o apellido).',
+                text: 'El contacto no se encontró en la agenda. Intente nuevamente cambiando y/o buscando con menos terminos.',
                 icon: 'error',
-                confirmButtonText: 'ok'
+                confirmButtonText: 'Entendido'
         })
         </script> 
     <%

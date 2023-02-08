@@ -29,11 +29,11 @@ function subirFotoAlServidor (nombreArchivo){
 module.exports = {
     addNew : (req, res) => {req.session.usuario ? res.render('addnew', {nombre: req.session.usuario.nombre, mensaje: null}) : res.redirect('/registrarse')/*usuario no logueado*/},
     search : (req, res) => {req.session.usuario ? res.render('search', {nombre: req.session.usuario.nombre, mensaje: null}) : res.redirect('/registrarse')/*usuario no logueado*/},
-    searchResults: (req, res) => {    
+    searchResults: async (req, res) =>  {    
         if (req.session.usuario){    
             const formData = req.body;  
             let id = req.session.usuario.id;              
-            contactosModel.searchResults(id, formData, conexion, (err, results) => {
+            await contactosModel.searchResults(id, formData, conexion, (err, results) => {
                 if (!err){
                     if (results.length > 0) {
                         console.log("Mostrando los resultados de la busqueda");
@@ -43,10 +43,10 @@ module.exports = {
                     }
                 }else{
                     console.log("Error en la busqueda en la BD");
-                    res.render('contacts_index', {mensaje: 'errorbd'}); 
+                    res.render('contacts_index', {mensaje: 'errorbd', nombre: req.session.usuario.nombre}); 
                 }
                 }) 
-        }else{
+        }else{            
             res.redirect('/registrarse');/*usuario no logueado*/
             console.log("Usuario no logueado");
         }       
@@ -60,7 +60,7 @@ module.exports = {
                 res.render('view_contacts', {contacts: results, titulo: "Contactos", nombre: req.session.usuario.nombre, mensaje: null});
             }else{
                 console.log("Error en la consulta a la BD");
-                res.render('contacts_index', {mensaje: 'errorbd'}); 
+                res.render('contacts_index', {mensaje: 'errorbd', nombre: req.session.usuario.nombre}); 
             }
             })
         }else{
@@ -82,7 +82,7 @@ module.exports = {
                     res.render('contacts_index', {nombre: req.session.usuario.nombre, mensaje: 'contactoagregado'});                     
                 }else {
                     console.log("Error en la consulta INSERT a la BD");
-                    res.render('contacts_index', {mensaje: 'errorbd'});  
+                    res.render('contacts_index', {mensaje: 'errorbd', nombre: req.session.usuario.nombre});  
                 }
             })
         }else{

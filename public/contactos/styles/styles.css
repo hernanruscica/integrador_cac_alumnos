@@ -343,3 +343,160 @@ input[type='file']::file-selector-button {
     }
 }
 /***************************VER CONTACTOS **********************FINALIZA    */
+
+
+/***************************VER CONTACTO **********************INICIA*/
+.contacto-tarjeta{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 20rem auto auto;
+    grid-template-areas: "foto-perfil foto-perfil foto-perfil foto-perfil foto-perfil foto-perfil "
+                         "data data data data data data "
+                         "data data data data data data ";                         
+    border: #333 solid 2px;    
+    border-radius: 10px;
+    margin: 2em 0;
+}
+
+.contacto-tarjeta__img-container{
+    grid-area: foto-perfil;    
+    text-align: center;
+    border: #333 solid 1px;   
+    border-top: none;
+    border-left: none;
+    overflow: hidden;
+    border-radius: 10px 0px 0px 0px;  
+    position: relative;
+}
+
+.contacto-tarjeta__titulo{
+    grid-area: titulo;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border: #333 solid 1px;   
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    align-self: center;
+    background-color: #FFEA86;  
+    border-radius: 0px 10px 0px 0px; 
+    padding: 2.6em 0.4em 0.4em 0.4em;
+}
+
+
+.contacto-tarjeta__img-container__img{
+    width: 100%;
+    /*max-width: 220px;*/
+    height: auto;
+    object-fit: contain;
+    object-position: center;  
+       
+}
+
+.contacto-tarjeta__titulo__texto{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 1.2em;
+    color: #FFEA86;
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    padding: 0.5em 0 ;
+}
+
+.contacto-tarjeta__titulo__botones{
+    position: absolute;
+    top:0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    border: #333 solid 1px;  
+    background-color: #333; 
+    border-top: none;    
+    border-right: none;
+    border-radius: 0px 10px 0px 0px;  
+     
+}
+
+.contacto-tarjeta__titulo__botones__btn__texto{
+    display: none;
+}
+
+.contacto-tarjeta__titulo__botones__btn{
+    cursor: pointer;
+    font-size: 1.4rem;
+    padding: 0.2em 0.4em;
+    color: #fff;    
+    border-radius: 0px 0px 0px 0px; 
+    overflow: hidden;
+}
+.contacto-tarjeta__titulo__botones__btn:nth-last-child(1){
+    border-radius: 0px 8px 0px 0px; 
+}
+
+.btn-ver{
+    background-color: #888;
+}
+.btn-editar{
+    background-color: #28DC25;
+}
+.btn-borrar{
+    background-color: red;
+}
+
+.btn-copiar {
+    cursor: pointer;
+    font-size: 0.9em;
+    border: solid #333 1px;
+    padding: 0.4rem;
+    border-radius: 5px;
+}
+
+.btn:hover{
+    opacity: 0.6;
+    transform: scale(0.96);
+}
+
+.contacto-tarjeta__data{
+    grid-area: data;
+    padding: 0.5em;
+}
+
+.contacto-tarjeta__data__item{
+    font-size: 1.2em;
+    margin: 0.5em;
+}
+
+
+/*
+@media (min-width: 700px){
+    .contacto-tarjeta{
+        grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas: "foto-perfil foto-perfil titulo titulo titulo titulo "
+                             "foto-perfil foto-perfil data data data data "
+                             "foto-perfil foto-perfil data data data data ";                         
+        border: #333 solid 2px;    
+    }
+    .contacto-tarjeta__img-container{
+        padding: 0em;  
+        border-radius: 10px 0px 0px 10px;  
+        
+    }
+    .contacto-tarjeta__img-container__img{
+        height: 100%;
+        max-height: 200px;
+        width: auto;        
+        object-fit: contain;
+        object-position: center;   
+        
+    }
+    .contacto-tarjeta__titulo__botones__btn__texto{
+        font-size: 0.6em;
+        text-transform: uppercase;
+        display: inline-block;
+    }
+}
+*/  
+/***************************VER CONTACTO **********************FINALIZA    */

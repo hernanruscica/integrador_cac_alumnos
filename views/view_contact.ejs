@@ -9,41 +9,37 @@
             <div class="contenedor">
                 <h2 class="formulario__titulo"><%= titulo %></h2>
 
-                <!--Una tarjeta de un contacto Con un display grid de tres componentes-->
-                <section class="contactos-tarjeta">
-                    <div class="contactos-tarjeta__img-container">
-                        <img src="https://ruscica-code.ar/uploads/<%= contact.imagen%>" alt="" class="contactos-tarjeta__img-container__img">
-                    </div>
-
-                    <div class="contactos-tarjeta__titulo">
-                        
-                        <span  class="contactos-tarjeta__titulo__texto"  id="name<%= contact.id %>" ><%= contact.nombres + " " + contact.apellidos %></span>
-                        <div class="contactos-tarjeta__titulo__botones">                                                     
-                            <a class="contactos-tarjeta__titulo__botones__btn  btn-editar" href="/contactos/editar/<%= contact.id %>"  
+                <!--Una tarjeta de un contacto Empieza-->
+                <section class="contacto-tarjeta">
+                    <div class="contacto-tarjeta__img-container">
+                        <img src="https://ruscica-code.ar/uploads/<%= contact.imagen%>" alt="" class="contacto-tarjeta__img-container__img">
+                        <span  class="contacto-tarjeta__titulo__texto"  id="name<%= contact.id %>" ><%= contact.nombres + " " + contact.apellidos %></span>
+                        <div class="contacto-tarjeta__titulo__botones">                                                     
+                            <a class="contacto-tarjeta__titulo__botones__btn  btn-editar" href="/contactos/editar/<%= contact.id %>"  
                                 id="editar_contacto">                                
-                                <span class="contactos-tarjeta__titulo__botones__btn__texto">EDITAR</span>
+                                <span class="contacto-tarjeta__titulo__botones__btn__texto">EDITAR</span>
                                 <i class="fa-solid fa-pen-to-square "></i>
                             </a>                                                    
-                            <div class="contactos-tarjeta__titulo__botones__btn  btn-borrar"  id="eliminar_contacto" data-id="<%= contact.id %>">
-                                <span class="contactos-tarjeta__titulo__botones__btn__texto">ELIMinaR</span>
-                                <i class="fa-solid fa-trash-can"></i>
+                            <div class="contacto-tarjeta__titulo__botones__btn  btn-borrar"  id="eliminar_contacto" data-id="<%= contact.id %>">
+                                <span class="contacto-tarjeta__titulo__botones__btn__texto">ELIMinaR</span>
+                                <i class="fa-solid fa-trash-can" id="eliminar_contacto"  data-id="<%= contact.id %>"></i>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="contactos-tarjeta__data">
-                        <div class="contactos-tarjeta__data__item">                           
+                    <div class="contacto-tarjeta__data">
+                        <div class="contacto-tarjeta__data__item">                           
                             <i class="fa-regular fa-envelope"></i>                            
                             <label id = "correo"><%= contact.correo %></label>
-                            <i class="fa-regular fa-copy  btn-copiar" data-id=""></i>
+                            <i class="fa-regular fa-copy  btn-copiar"  id="btn-copiar"  data-value="<%= contact.correo %>"></i>
                         </div>
-                        <div class="contactos-tarjeta__data__item">                           
+                        <div class="contacto-tarjeta__data__item">                           
                             <i class="fa-solid fa-phone"></i>
                             <label id = "telefono"><%= contact.telefono %></label>
-                            <i class="fa-regular fa-copy  btn-copiar" data-id=""></i>
+                            <i class="fa-regular fa-copy  btn-copiar"  id="btn-copiar"  data-value="<%= contact.telefono %>"></i>
                         </div>
                     </div>
-                </section>                                   
+                </section>  
+                <!--Una tarjeta de un contacto Termina-->                                 
             </div>
         </form>             
        

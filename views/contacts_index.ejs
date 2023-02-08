@@ -38,9 +38,9 @@
         <script>
             Swal.fire({
                 title: 'Contacto agregado !',
-                text: 'El contacto fué agregado exitosamente.',
+                text: 'Agregado exitosamente a la agenda.',
                 icon: 'success',
-                confirmButtonText: 'ok'
+                confirmButtonText: 'Entendido'
         })
         </script> 
     <%
@@ -48,10 +48,10 @@
     if (mensaje == 'errorbd') { %>
         <script>
             Swal.fire({
-                title: 'Error de base de datos ',
+                title: 'Error de base de datos :(',
                 text: 'La consulta a la base de datos produjo un error.',
                 icon: 'error',
-                confirmButtonText: 'ok'
+                confirmButtonText: 'Entendido'
         })
         </script> 
     <%
@@ -59,10 +59,10 @@
     if (mensaje == 'edicioncorrecta') {%>
         <script>
             Swal.fire({
-                title: 'Edición exitosa !',
-                text: 'La edición del contacto fue exitosa.',
+                title: 'Contacto editado !',
+                text: 'Editado y guardado exitosamente en la agenda.',
                 icon: 'success',
-                confirmButtonText: 'ok'
+                confirmButtonText: 'Entendido'
         })
         </script> 
     <%

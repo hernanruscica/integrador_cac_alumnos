@@ -10,24 +10,28 @@
                 <div class="formulario__fila">
                     <div class="formulario__fila__campo">
                         <label class = "formulario__campo__label" for="nombre">Nombre de usuario:</label>                        
-                        <input class = "formulario__campo__input" type="text" name="nombre" id = "nombre" placeholder="Ingrese su nombre de usuario." required>
+                        <input class = "formulario__campo__input" type="text" name="nombre" 
+                            id = "nombre" placeholder="Ingrese su nombre de usuario." maxlength="49" required>
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
                     </div>
                     <div class="formulario__fila__campo">
                         <label class = "formulario__campo__label" for="correo">Correo electronico:</label>
-                        <input class = "formulario__campo__input" type="email" name = "correo" id = "correo" placeholder="Ingrese un correo electronico valido." required>
+                        <input class = "formulario__campo__input" type="email" name = "correo" 
+                            id = "correo" placeholder="Ingrese un correo electronico valido." maxlength="49"  required>
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
                     </div>
                 </div>
                 <div class="formulario__fila">
                     <div class="formulario__fila__campo">
                         <label class = "formulario__campo__label" for="contrasenia">Contrasenia:</label>
-                        <input class = "formulario__campo__input" type="password" name = "contrasenia" id = "contrasenia" placeholder="Ingrese su contrasenia." required>
+                        <input class = "formulario__campo__input" type="password" name = "contrasenia" 
+                            id = "contrasenia" placeholder="Ingrese su contrasenia." maxlength="49"  required>
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*Las contraseñas deber ser iguales</label>
                     </div>
                     <div class="formulario__fila__campo">
                         <label class = "formulario__campo__label" for="contrasenia2">Repita la contrasenia:</label>
-                        <input class = "formulario__campo__input" type="password" name = contrasenia2 id = "contrasenia2" placeholder="Ingrese su contrasenia nuevamente." required>
+                        <input class = "formulario__campo__input" type="password" name = contrasenia2 
+                            id = "contrasenia2" placeholder="Ingrese su contrasenia nuevamente." maxlength="49"  required>
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*Las contraseñas deber ser iguales</label>
                     </div>
                 </div>   
@@ -53,9 +57,9 @@
             <script>
                 Swal.fire({
                     title: 'Error al registrarse !',
-                    text: 'Usuario y/o correo YA existe en la Base de Datos.',
+                    text: 'Nombre de usuario y/o correo YA existe/n en algún usuario registrado de la agenda.',
                     icon: 'error',
-                    confirmButtonText: 'Ok'
+                    confirmButtonText: 'Entendido'
             })
             </script>    
         <%
