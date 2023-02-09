@@ -23,24 +23,24 @@
                 <div class="formulario__fila">
                     <div class="formulario__fila__campo">
                         <label class = "formulario__campo__label" for="nombres">Nombres</label>                        
-                        <input class = "formulario__campo__input" type="text" name="nombres" id = "nombres" value="<%= contacto.nombres %>" required>
+                        <input class = "formulario__campo__input" type="text" name="nombres" id = "nombres" value="<%= contacto.nombres %>" maxlength="30"  required>
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
                     </div>
                     <div class="formulario__fila__campo">
                         <label class = "formulario__campo__label" for="apellidos">Apellidos</label>
-                        <input class = "formulario__campo__input" type="text" name="apellidos" id = "apellidos" value="<%= contacto.apellidos %>" required>
+                        <input class = "formulario__campo__input" type="text" name="apellidos" id = "apellidos" value="<%= contacto.apellidos %>" maxlength="30"  required>
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio</label>
                     </div>
                 </div>
                 <div class="formulario__fila">
                     <div class="formulario__fila__campo">
                         <label class = "formulario__campo__label" for="telefono">Número de teléfono</label>
-                        <input class = "formulario__campo__input" type="text" name="telefono" id = "telefono" value="<%= contacto.telefono %>" required>
+                        <input class = "formulario__campo__input" type="text" name="telefono" id = "telefono" value="<%= contacto.telefono %>" maxlength="30"  required>
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio /formato no valido</label>
                     </div>
                     <div class="formulario__fila__campo">
                         <label class = "formulario__campo__label" for="email">Correo Electrónico</label>
-                        <input class = "formulario__campo__input" type="email" name="email" id = "email" value="<%= contacto.correo %>" required>
+                        <input class = "formulario__campo__input" type="email" name="email" id = "email" value="<%= contacto.correo %>" maxlength="30"  required>
                         <label class = "formulario__campo__error formulario__campo__error-oculto">*No puede estar vacio / formato no valido</label>
                     </div>
                 </div>
