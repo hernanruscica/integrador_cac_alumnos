@@ -15,7 +15,7 @@ module.exports = {
         conection.query(`UPDATE contactos SET nombres = '${formData.nombres}', apellidos = '${formData.apellidos}', correo = '${formData.email}', telefono = '${formData.telefono}', imagen = '${image}' WHERE id = ${id};`, myFunction);
     },    
     searchResults: (id, formData, conection, myFunction) => {                
+        //SELECT * FROM contactos WHERE (nombres LIKE '%gonza%' OR apellidos LIKE '%gonza%') AND usuario_id = "1";
         conection.query(`SELECT * FROM contactos WHERE (nombres LIKE '%${formData.nombres}%' OR apellidos LIKE '%${formData.nombres}%') AND usuario_id = ${id}`, myFunction);
     }
-
 } 

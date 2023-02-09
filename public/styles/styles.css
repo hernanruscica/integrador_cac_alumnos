@@ -30,11 +30,11 @@ body {
 
 /*************************   FORMULARIO CREAR CONTACTO ************************** EMPIEZA*/
 .formulario {
-    background-color: #DDD;
+    background-color: #eee;
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-    padding-top: 0rem;
+    padding-top: 2rem;
 }
 
 .formulario__fila{

@@ -236,8 +236,14 @@ input[type='file']::file-selector-button {
     align-self: center;
     background-color: #FFEA86;  
     border-radius: 0px 10px 0px 0px; 
-    padding: 2.6em 0.4em 0.4em 0.4em;
+    padding: 2.8em 0.4em 0.4em 0.4em;
 }
+
+.contactos-tarjeta__titulo__texto{
+    word-break: break-all;
+    text-transform: capitalize;
+}
+
 
 
 .contactos-tarjeta__img-container__img{
@@ -302,9 +308,16 @@ input[type='file']::file-selector-button {
     transform: scale(0.96);
 }
 
+
 .contactos-tarjeta__data{
     grid-area: data;
     padding: 0.5em;
+    background-color: #FFF;
+    border-radius: 0 0  7px 7px;
+}
+
+.contactos-tarjeta__data label{
+    word-break: break-all;   
 }
 
 .contactos-tarjeta__data__item{
@@ -393,6 +406,7 @@ input[type='file']::file-selector-button {
     height: auto;
     object-fit: contain;
     object-position: center;  
+    border-radius: 7px 7px 0 0;
     
        
 }
@@ -465,6 +479,8 @@ input[type='file']::file-selector-button {
 .contacto-tarjeta__data{
     grid-area: data;
     padding: 0.5em;
+    background-color: #FFF;
+    border-radius: 0 0  7px 7px;
 }
 
 .contacto-tarjeta__data__item{
@@ -477,7 +493,7 @@ input[type='file']::file-selector-button {
 @media (min-width: 700px){
     .contacto-tarjeta{
         grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: auto auto auto;
+        grid-template-rows: 30rem auto auto;
         grid-template-areas: "foto-perfil foto-perfil foto-perfil foto-perfil foto-perfil foto-perfil "
                              "data data data data data data "
                              "data data data data data data ";                         
